@@ -1,0 +1,123 @@
+.main
+{
+  display: flex;
+  flex-direction: column;
+}
+/*header|||||||||||||||||||||||||||||||||||||||||||||*/
+.header
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-bottom: 1px solid var(--c2, #BDBDBD);
+  background:#F9F9F9;
+}
+.informacao
+{
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  font-weight: 700;
+  gap: 30px
+}
+.pessoal
+{
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  gap: 30px
+}
+.logo
+{
+font-size: 20px;
+font-weight: 700;
+}
+/*header|||||||||||||||||||||||||||||||||||||||||||||*/
+.principal
+{
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.titulo
+{
+  font-size: 94px;
+}
+.cbut
+{
+  margin-top: 3vh;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--c2, #F9F9F9);
+  background: #1B1B1B;
+  box-shadow: 8px 8px 0px 0px #BDBDBD;
+}
+.mainban
+{
+  padding-top: 50px;
+}
+.subtitulo
+{
+  padding-top: 10vh;
+  text-align: center;
+  font-size: 29px;
+  font-weight: 800;
+}
+.cardcolecao
+{
+  display: flex;
+  align-items: center;
+  padding-left: 260px;
+}
+.imdi
+{
+  width: 534px;
+  height: 866px;
+  margin-right: 250px;
+}
+.outros_produtos
+{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+/* FOOTER||||||||||||||||||||||||||||||||||||||||||||||*/
+.footer
+{
+  margin-top: 100px;
+  display: flex;
+  color: white;
+  background-color: black;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.inf_esq
+{
+  font-size: 20px;
+  padding-left: 160px;
+  padding-top: 10px;
+}
+.icons
+{
+  display: flex;
+  gap: 10px 
+}
+.dig_email
+{
+  padding: 10px;
+  background-color: black;
+  border: 1px solid var(--c2, #F9F9F9);
+}
+.inf_dir
+{
+  padding-right: 160px;
+  font-size: 16px;
+}
+/* FOOTER||||||||||||||||||||||||||||||||||||||||||||||*/
