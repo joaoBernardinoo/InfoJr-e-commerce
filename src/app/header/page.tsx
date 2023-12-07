@@ -13,7 +13,7 @@ import Image from "next/image"
 export default function Header () {
     return (
         <header className={styles.header}>
-            <h3 className={styles.logo}>BLCVK</h3>
+            <Link href={"/"}><h3 className={styles.logo}>BLCVK</h3></Link>            
             <div className={styles.informacao}>
                 <Link href="/produtos"><h3>Produtos</h3></Link>
                 <Link href="/colecao"><h3>Coleções</h3></Link>
