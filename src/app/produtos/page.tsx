@@ -3,7 +3,15 @@ import favoritos from '../imagens/favorite_border.png';
 import perfil from '../imagens/person_outline.png';
 import produtos from '../imagens/cards_produtos/productCards.png';
 import filter from '../imagens/filtro/filter_list.png';
+import carrinho from '../imagens/shopping_cart.png';
+import favoritos from '../imagens/favorite_border.png';
+import perfil from '../imagens/person_outline.png';
+import produtos from '../imagens/cards_produtos/productCards.png';
+import filter from '../imagens/filtro/filter_list.png';
 
+import styles from './page.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -59,7 +67,7 @@ export default function Produtos() {
             <h1>Editar</h1>
           </Link>
         </div>
-      </div>      
+      </div>
     </main>
   );
 }
