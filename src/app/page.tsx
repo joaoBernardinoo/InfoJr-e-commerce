@@ -5,7 +5,7 @@ import card_es_1 from './imagens/cards_coleção/cardsColeção.png';
 import card_esq_2 from './imagens/cards_coleção/cardsColeção (1).png';
 import card_dir from './imagens/cards_coleção/cardsColeção (2).png';
 
-import produtos from './imagens/cards_produtos/productCards.png';
+import produtos from './imagens/cards_produtos/card1.png';
 
 import Image from 'next/image';
 import styles from './page.module.css';
@@ -105,8 +105,8 @@ export default function Home() {
           </div>
           <div className={styles.cardcolecao}>
             <div className={styles.esquerda}>
-              <Image src={card_es_1} alt="ces1"></Image>
-              <Image src={card_esq_2} alt="ces2"></Image>
+              <Image className={styles.imesq} src={card_es_1} alt="ces1"></Image>
+              <Image className={styles.imesq} src={card_esq_2} alt="ces2"></Image>
             </div>
             <div className={styles.direita}>
               <Image className={styles.imdi} src={card_dir} alt="ces2"></Image>
