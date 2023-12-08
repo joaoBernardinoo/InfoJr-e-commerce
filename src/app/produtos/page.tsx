@@ -1,3 +1,5 @@
+"use client"
+import { useState } from 'react';
 import produtos from '../imagens/cards_produtos/card1.png';
 import filter from '../imagens/filtro/filter_list.png';
 
@@ -6,6 +8,76 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Produtos() {
+
+  const [prods, setProds] = useState([
+    {
+      name: 'Blvck Mohair Branded Sweater1',
+      current_price: 654.0,
+      old_price: 746.0,
+      available_quantity: 7,
+      size: ['P', 'M', 'G', 'GG'],
+      product_description:
+        'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
+      tags: ['Sweater', 'Casacos', 'Roupa'],
+      image: [produtos, produtos, produtos],
+    },
+    {
+      name: 'Blvck Mohair Branded Sweater',
+      current_price: 654.0,
+      old_price: 746.0,
+      available_quantity: 7,
+      size: ['P', 'M', 'G', 'GG'],
+      product_description:
+        'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
+      tags: ['Sweater', 'Casacos', 'Roupa'],
+      image: [produtos, produtos, produtos],
+    },
+    {
+      name: 'Blvck Mohair Branded Sweater',
+      current_price: 654.0,
+      old_price: 746.0,
+      available_quantity: 7,
+      size: ['P', 'M', 'G', 'GG'],
+      product_description:
+        'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
+      tags: ['Sweater', 'Casacos', 'Roupa'],
+      image: [produtos, produtos, produtos],
+    },
+    {
+      name: 'Blvck Mohair Branded Sweater',
+      current_price: 654.0,
+      old_price: 746.0,
+      available_quantity: 7,
+      size: ['P', 'M', 'G', 'GG'],
+      product_description:
+        'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
+      tags: ['Sweater', 'Casacos', 'Roupa'],
+      image: [produtos, produtos, produtos],
+    },
+    {
+      name: 'Blvck Mohair Branded Sweater',
+      current_price: 654.0,
+      old_price: 746.0,
+      available_quantity: 7,
+      size: ['P', 'M', 'G', 'GG'],
+      product_description:
+        'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
+      tags: ['Sweater', 'Casacos', 'Roupa'],
+      image: [produtos, produtos, produtos],
+    },
+    {
+      name: 'Blvck Mohair Branded Sweater',
+      current_price: 654.0,
+      old_price: 746.0,
+      available_quantity: 7,
+      size: ['P', 'M', 'G', 'GG'],
+      product_description:
+        'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
+      tags: ['Sweater', 'Casacos', 'Roupa'],
+      image: [produtos, produtos, produtos],
+    },
+  ]);
+
   return (
     <main>
       <div className={styles.box1}>
@@ -35,21 +107,16 @@ export default function Produtos() {
               </div>
             </div>
           </div>
-          <div className={styles.produtos}>
-            <Image src={produtos} alt="prod"></Image>
-            <Image src={produtos} alt="prod"></Image>
-            <Image src={produtos} alt="prod"></Image>
-          </div>
-          <div className={styles.produtos}>
-            <Image src={produtos} alt="prod"></Image>
-            <Image src={produtos} alt="prod"></Image>
-            <Image src={produtos} alt="prod"></Image>
-          </div>
-          <div className={styles.produtos}>
-            <Image src={produtos} alt="prod"></Image>
-            <Image src={produtos} alt="prod"></Image>
-            <Image src={produtos} alt="prod"></Image>
-          </div>
+          {/*Joga todos os produtos na tela*/}
+          {prods.map((prod, key) => (
+              <div key={key} className={styles.outros_produtos}>
+                <Image src={prod.image[0]} className='card-img' alt="prod"></Image>
+                <h2>{prod.name}</h2>
+                <p>{prod.current_price}</p>
+                <p>{prod.old_price}</p>
+                <p>Quantidade {prod.available_quantity}</p>
+              </div>
+            ))}
         </div>
         <div className={styles.editar}>
           <Link href="/edicao">
