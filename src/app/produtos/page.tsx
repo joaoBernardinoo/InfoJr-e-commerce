@@ -1,4 +1,4 @@
-import produtos from '../imagens/cards_produtos/productCards.png';
+import produtos from '../imagens/cards_produtos/card1.png';
 import filter from '../imagens/filtro/filter_list.png';
 
 import styles from './page.module.css';
