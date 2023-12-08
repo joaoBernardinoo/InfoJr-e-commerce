@@ -111,7 +111,6 @@ export default function Edicao() {
             setIsModalVisible(false);
           }}
           onSave={() => {
-            save;
           }}
         />
       ) : null}
