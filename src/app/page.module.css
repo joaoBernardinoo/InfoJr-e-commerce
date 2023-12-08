@@ -56,3 +56,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.card-img {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+}

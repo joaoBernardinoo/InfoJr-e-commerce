@@ -5,7 +5,7 @@ import card_es_1 from './imagens/cards_coleção/cardsColeção.png';
 import card_esq_2 from './imagens/cards_coleção/cardsColeção (1).png';
 import card_dir from './imagens/cards_coleção/cardsColeção (2).png';
 
-import produtos from './imagens/cards_produtos/productCards.png';
+import produtos from './imagens/cards_produtos/card1.png';
 
 import Image from 'next/image';
 import styles from './page.module.css';
@@ -120,7 +120,7 @@ export default function Home() {
             {/*Joga todos os produtos na tela*/}
             {prods.map((prod, key) => (
               <div key={key} className={styles.outros_produtos}>
-                <Image src={prod.image[0]} alt="prod"></Image>
+                <Image src={prod.image[0]} className='card-img' alt="prod"></Image>
                 <h2>{prod.name}</h2>
                 <p>{prod.current_price}</p>
                 <p>{prod.old_price}</p>
