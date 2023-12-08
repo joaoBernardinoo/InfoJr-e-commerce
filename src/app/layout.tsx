@@ -4,9 +4,6 @@ import './globals.css'
 import { Container } from '@/components/bootstrap'
 import Header from './header/page'
 import Footer from './footer/page'
-import { Container } from '@/components/bootstrap'
-import Header from './header/page'
-import Footer from './footer/page'
 
 const inter = Inter({ subsets: ['latin'] })
 
