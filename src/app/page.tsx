@@ -114,11 +114,15 @@ export default function Home() {
         <div className="box3">
           <div className={styles.subtitulo}>
             <p>Produtos</p>
-            <div className={styles.outros_produtos}>
-              <Image src={produtos} alt='prod'></Image>
-              <Image src={produtos} alt='prod'></Image>
-              <Image src={produtos} alt='prod'></Image>
-            </div>
+            {/*Joga todos os produtos na tela*/}
+            {prods.map((prod, key) => (
+            <div key={key} className={styles.outros_produtos}>
+              <Image src={prod.image[0]} alt='prod'></Image>
+              <h2>{prod.name}</h2>
+              <p>{prod.current_price}</p>
+              <p>{prod.old_price}</p>
+              <p>Quantidade {prod.available_quantity}</p>
+            </div>))}
             <div className={styles.subtitulo}>
             <p><button className={styles.cbut}>Ver Mais</button></p>
             </div>
