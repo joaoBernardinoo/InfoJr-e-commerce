@@ -1,4 +1,4 @@
-export interface Product {
+export type Product = {
     name: string,
     current_price: float,
     old_price: float,
