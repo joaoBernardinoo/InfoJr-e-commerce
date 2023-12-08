@@ -1,4 +1,35 @@
 # Projeto Final PlugInfo #
+## TODO
+### Prioridade Máxima
+  1. `saveProduct()` (recebe os dados do produto e salva no array de produtos )
+  1. `Editar/Salvar produto` ( criar um modal com os campos do produto e um botão de salvar)
+
+  2. `Excluir produto`
+
+### Prioridade Média
+
+  #### Vizualização de produtos
+  1. `otherProducts()` ( retorna um array dos 6 primeiros produtos do array de produtos )
+  1. `similarProducts()` ( função que recebe um produto e retorna um array com produtos com a mesma tag/coleção ou tipo)
+  1. `recentProducts()` ( retorna 4 produtos mais recentemente vistos pelo usuário; sugestão: usar pilha como estrutura de dados )
+  1. `filterProducts()` ( retorna um array de produtos que contém a tag/coleção ou categoria passado como parâmetro; obs: )
+  1. `searchProducts()` ( retorna um array de produtos que contém a string passada como parâmetro no nome ou na descrição; pode usar filterProducts() para buscar dentro de uma categoria específica )
+  #### Carrinho
+  1. `addCart()` ( adiciona um produto ao carrinho )
+  1. `getCart()` ( retorna o carrinho )
+  1. `removeCart()` ( remove um produto do carrinho )
+  1. `clearCart()` ( limpa o carrinho )
+  1. `checkout()` ( finaliza a compra )
+
+
+### Prioridade Minima
+  1. Implementar o banco de dados
+  1. Implementar o login
+  1. Implementar o localStorage
+  1. useEffect() no array de produtos para atualizar o localStorage
+  1. Puxar os dados do banco de dados/localStorage para o array de produtos
+  
+  
 
 ## Padrão de commit
 

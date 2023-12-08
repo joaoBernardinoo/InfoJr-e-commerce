@@ -1,9 +1,9 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
 
-import card_es_1 from './imagens/cards_coleção/cardsColeção.png';
-import card_esq_2 from './imagens/cards_coleção/cardsColeção (1).png';
-import card_dir from './imagens/cards_coleção/cardsColeção (2).png';
+import card_es_1 from './imagens/cards_coleção/promocoes.png';
+import card_esq_2 from './imagens/cards_coleção/perfume.png';
+import card_dir from './imagens/cards_coleção/whte.png';
 
 import produtos from './imagens/cards_produtos/card1.png';
 import ProductContext from '@/contexts/products';
@@ -11,6 +11,13 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { useState, useContext, useEffect } from 'react';
+
+function debugFunction() {
+  console.log('debug');
+}
+if (typeof window !== 'undefined') {
+  (window as any).debugFunction = debugFunction;
+}
 
 const produto = [
   {
@@ -91,12 +98,13 @@ const produto = [
 export default function Home() {
   const { products } = useContext(ProductContext);
 
-
-  useEffect(() => {
+  function updateProducts() {
+    if (products.length > 0) return;
     for (let i = 0; i < produto.length; i++) {
       products.push(produto[i]);
     }
-  }, []);
+  }
+  updateProducts();
 
   return (
     <main className={styles.main}>
@@ -120,8 +128,15 @@ export default function Home() {
           </div>
           <div className={styles.cardcolecao}>
             <div className={styles.esquerda}>
-              <Image src={card_es_1} alt="ces1"></Image>
-              <Image src={card_esq_2} alt="ces2"></Image>
+              <Image
+                src={
+                  'https://s3-alpha-sig.figma.com/img/2a20/2130/57540671b680b59978fa9ae6e8ae1c27?Expires=1702857600&Signature=Kxpso7hCm66LMQA-6~lrxnkWWWSlApLemGKaccoBAhVGOBwZOSpnXtFO16vaTkWXU7WkyD-FXs5mZAxe1aihv4vhUCFQuOty1iY9Bb~Rtm89GK3A1zspLN3dMLVP~xhCPI8ZHpw4Ivd7OYw7yVL0M79Cc4lLrgXW22nDokneEIBfWo67LrK5LhqnThwsF5XKPA08kBbPQ7VRwwWVYn6Xwlv23tZHdTdekE0o~pBQfyBFbePbzdJkNbMQS-TSThqdmRSAi7Zj5uJ500YaK-9vgtZroUjB247TOEvSPqBuPQ817r8qoTex0749-JyiN0nk3IJ1jCe8C39oxgRhfMmXOw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+                }
+                width={892}
+                height={495}
+                alt="ces1"
+              ></Image>
+              <Image src={card_esq_2}  alt="ces2"></Image>
             </div>
             <div className={styles.direita}>
               <Image className={styles.imdi} src={card_dir} alt="ces2"></Image>
@@ -134,7 +149,13 @@ export default function Home() {
             {/*Joga todos os produtos na tela*/}
             {products.map((prod, key) => (
               <div key={key} className={styles.outros_produtos}>
-                <Image src={prod.image[0]} className={styles.card_img} alt="prod"></Image>
+                <Image
+                  src={prod.image[0]}
+                  width={892}
+                  height={495}
+                  className={styles.card_img}
+                  alt="prod"
+                ></Image>
                 <h2>{prod.name}</h2>
                 <p>{prod.current_price}</p>
                 <p>{prod.old_price}</p>
