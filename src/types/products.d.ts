@@ -3,9 +3,10 @@ export interface Product {
     current_price: float,
     old_price: float,
     available_quantity: int,
-    size: string,
+    size: string[],
     product_description: string,
-    Tags: string
+    tags: string[],
+    images: string[]
 }
 
 export type ProductResponse = {
@@ -13,4 +14,5 @@ export type ProductResponse = {
     current_price: float,
     old_price: float,
     available_quantity: int,
+    images: string[]
 }
