@@ -1,12 +1,11 @@
-export type Product = {
+export interface Product {
     name: string,
     current_price: float,
     old_price: float,
     available_quantity: int,
-    size: string[],
+    size: string,
     product_description: string,
-    tags: string[],
-    images: string[]
+    Tags: string
 }
 
 export type ProductResponse = {
@@ -14,5 +13,4 @@ export type ProductResponse = {
     current_price: float,
     old_price: float,
     available_quantity: int,
-    images: string[]
 }
