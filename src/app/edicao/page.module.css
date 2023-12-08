@@ -1,0 +1,12 @@
+.card_img {
+  width: 360px;
+  height: 360px;
+}
+
+.outros_produtos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
