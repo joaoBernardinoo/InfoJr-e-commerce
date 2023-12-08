@@ -122,6 +122,7 @@ export default function Produtos() {
                 </div>
               ))}
           </div>
+
         </div>
         <div className={styles.editar}>
           <Link href="/edicao">

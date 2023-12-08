@@ -1,9 +1,10 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
 
-import card_es_1 from './imagens/cards_coleção/cardsColeção.png'
-import card_esq_2 from './imagens/cards_coleção/cardsColeção (1).png';
-import card_dir from './imagens/cards_coleção/cardsColeção (2).png';
+
+import card_es_1 from './imagens/cards_coleção/promocoes.png';
+import card_esq_2 from './imagens/cards_coleção/perfume.png';
+import card_dir from './imagens/cards_coleção/whte.png';
 
 import produtos from './imagens/cards_produtos/card1.png';
 import ProductContext from '@/contexts/products';
@@ -11,6 +12,14 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { useState, useContext, useEffect } from 'react';
+
+
+function debugFunction() {
+  console.log('debug');
+}
+if (typeof window !== 'undefined') {
+  (window as any).debugFunction = debugFunction;
+}
 
 const produto = [
   {
@@ -92,11 +101,13 @@ export default function Home() {
   const { products } = useContext(ProductContext);
 
 
-  useEffect(() => {
+  function updateProducts() {
+    if (products.length > 0) return;
     for (let i = 0; i < produto.length; i++) {
       products.push(produto[i]);
     }
-  }, []);
+  }
+  updateProducts();
 
   return (
     <main className={styles.main}>
