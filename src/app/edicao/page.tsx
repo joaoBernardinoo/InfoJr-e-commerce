@@ -17,7 +17,7 @@ export default function Edicao() {
           id: 1,
           name: 'Blvck Mohair Branded Sweater1',
           current_price: 654.0,
-          old_price: 746.0,
+          old_price: 746.0
           available_quantity: 7,
           size: ['P', 'M', 'G', 'GG'],
           product_description:
@@ -92,7 +92,7 @@ export default function Edicao() {
     }
 
     return (
-        <>
+        <main>
         {/*Joga todos os produtos na tela*/}
         {prods.map((prod) => (
             <div key={prod.id} className={styles.outros_produtos}>
@@ -104,6 +104,9 @@ export default function Edicao() {
               <button onClick={() => remove(prod.id)}>Remover</button>
             </div>
         ))}
-        </>
+
+    
+        </main>
+
     )
 }
