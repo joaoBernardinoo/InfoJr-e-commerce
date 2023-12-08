@@ -17,7 +17,7 @@ export default function Edicao() {
           id: 1,
           name: 'Blvck Mohair Branded Sweater1',
           current_price: 654.0,
-          old_price: 746.0
+          old_price: 746.0,
           available_quantity: 7,
           size: ['P', 'M', 'G', 'GG'],
           product_description:
