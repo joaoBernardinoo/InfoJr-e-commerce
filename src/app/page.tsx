@@ -1,9 +1,9 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
 
-import card_es_1 from './imagens/cards_coleção/cardsColeção.png';
-import card_esq_2 from './imagens/cards_coleção/cardsColeção (1).png';
-import card_dir from './imagens/cards_coleção/cardsColeção (2).png';
+import card_es_1 from './imagens/cards_coleção/promocoes.png';
+import card_esq_2 from './imagens/cards_coleção/perfume.png';
+import card_dir from './imagens/cards_coleção/whte.png';
 
 import produtos from './imagens/cards_produtos/card1.png';
 import ProductContext from '@/contexts/products';
@@ -95,6 +95,7 @@ export default function Home() {
   useEffect(() => {
     for (let i = 0; i < produto.length; i++) {
       products.push(produto[i]);
+      
     }
   }, []);
 
