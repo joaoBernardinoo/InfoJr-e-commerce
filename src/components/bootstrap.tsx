@@ -1,5 +1,3 @@
 'use client';
 
-export { Cont'use client';
-
-export { Cont
+export { Container } from 'react-bootstrap'
