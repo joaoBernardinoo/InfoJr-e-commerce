@@ -128,15 +128,9 @@ export default function Home() {
           </div>
           <div className={styles.cardcolecao}>
             <div className={styles.esquerda}>
-              <Image
-                src={
-                  'https://s3-alpha-sig.figma.com/img/2a20/2130/57540671b680b59978fa9ae6e8ae1c27?Expires=1702857600&Signature=Kxpso7hCm66LMQA-6~lrxnkWWWSlApLemGKaccoBAhVGOBwZOSpnXtFO16vaTkWXU7WkyD-FXs5mZAxe1aihv4vhUCFQuOty1iY9Bb~Rtm89GK3A1zspLN3dMLVP~xhCPI8ZHpw4Ivd7OYw7yVL0M79Cc4lLrgXW22nDokneEIBfWo67LrK5LhqnThwsF5XKPA08kBbPQ7VRwwWVYn6Xwlv23tZHdTdekE0o~pBQfyBFbePbzdJkNbMQS-TSThqdmRSAi7Zj5uJ500YaK-9vgtZroUjB247TOEvSPqBuPQ817r8qoTex0749-JyiN0nk3IJ1jCe8C39oxgRhfMmXOw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-                }
-                width={892}
-                height={495}
-                alt="ces1"
-              ></Image>
-              <Image src={card_esq_2}  alt="ces2"></Image>
+              <Image className={styles.imesq} src={card_es_1} alt="ces1"></Image>
+              <Image className={styles.imesq} src={card_esq_2} alt="ces2"></Image>
+
             </div>
             <div className={styles.direita}>
               <Image className={styles.imdi} src={card_dir} alt="ces2"></Image>
@@ -145,23 +139,26 @@ export default function Home() {
         </div>
         <div className="box3">
           <div className={styles.subtitulo}>
-            <p>Produtos</p>
-            {/*Joga todos os produtos na tela*/}
-            {products.map((prod, key) => (
-              <div key={key} className={styles.outros_produtos}>
-                <Image
-                  src={prod.image[0]}
-                  width={892}
-                  height={495}
-                  className={styles.card_img}
-                  alt="prod"
-                ></Image>
-                <h2>{prod.name}</h2>
-                <p>{prod.current_price}</p>
-                <p>{prod.old_price}</p>
-                <p>Quantidade {prod.available_quantity}</p>
-              </div>
-            ))}
+            <p>Produtos</p><<<<<<< TSouza
+            <div className={styles.produtos}>
+              {/*Joga todos os produtos na tela*/}
+              {products.map((prod, key) => (
+                <div key={key} className={styles.card_produtos}>
+                  <div className={styles.card_img}>
+                    <Image src={prod.image[0]} className={styles.card_img} alt="prod" width={165} height={165}></Image>
+                  </div>
+                  <div className={styles.informacoes}>
+                    <h2>{prod.name}</h2>
+                    <div className={styles.precos}>
+                      <p className={styles.current_price}>R$ {prod.current_price}</p>
+                      <p className={styles.old_price}>R$ {prod.old_price}</p>
+                    </div>
+                    <p className={styles.disponivel}>{prod.available_quantity} itens em estoque</p>
+                  </div>                  
+                </div>
+              ))}
+            </div>
+
             <div className={styles.subtitulo}>
               <p>
                 <button className={styles.cbut}>Ver Mais</button>
