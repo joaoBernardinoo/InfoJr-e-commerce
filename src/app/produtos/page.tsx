@@ -110,7 +110,7 @@ export default function Produtos() {
           {/*Joga todos os produtos na tela*/}
           {prods.map((prod, key) => (
               <div key={key} className={styles.outros_produtos}>
-                <Image src={prod.image[0]} className='card-img' alt="prod"></Image>
+                <Image src={prod.image[0]} className={styles.card_img} alt="prod"></Image>
                 <h2>{prod.name}</h2>
                 <p>{prod.current_price}</p>
                 <p>{prod.old_price}</p>
