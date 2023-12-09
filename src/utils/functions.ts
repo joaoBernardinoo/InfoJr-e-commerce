@@ -38,13 +38,3 @@ export function clearCart(prodsCart: Product[]) {
   prodsCart.length = 0;
 }
 
-export function updateProductsArray(products: Product[], id: number) {
-  const newProducts = products.filter((prod) => prod.id !== id);
-  console.log(products);
-  if (newProducts.length == 0) return;
-  products.length = 0;
-  for (let i = 0; i < newProducts.length; i++) {
-    products.push(newProducts[i]);
-  }
-  console.log(products);
-}
