@@ -34,7 +34,7 @@ function DropdownMenu(): JSX.Element {
             <div className={styles.menuBox}>
               <div className={styles.produtos}>
                 <ul className={styles.menu}>
-                  <Link href="/" style={{ textDecoration: 'none', color: 'black' }}>
+                  <Link href="/produtos" style={{ textDecoration: 'none', color: 'black' }}>
                     <h4>Produtos</h4>
                   </Link>                  
                   <li>
