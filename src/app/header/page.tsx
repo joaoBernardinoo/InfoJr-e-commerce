@@ -11,17 +11,16 @@ import Image from "next/image"
 export default function Header() {
     return (
         <header className={styles.header}>
-            <Link href="/"><h3 className={styles.logo}>BLCVK</h3></Link>
-
+            <Link href='/'><h3 className={styles.logo}>BLCVK</h3></Link>
             <div className={styles.informacao}>
             <Link href="/produtos"><h3>Produtos</h3></Link>
             <Link href="/colecao"><h3>Coleções</h3></Link>
             <Link href="/sobre"><h3>Sobre</h3></Link>
             </div>
             <div className={styles.pessoal}>
-            <h3><Image src={carrinho} alt='car'></Image></h3>
-            <h3><Image src={favoritos} alt='fav'></Image></h3>
-            <h3><Image src={perfil} alt='per'></Image></h3>
+            <Link href="/carrinho"><h3><Image src={carrinho} alt='car'></Image></h3></Link>
+            <Link href="/favoritos"><h3><Image src={favoritos} alt='fav'></Image></h3></Link>
+            <Link href="/perfil"><h3><Image src={perfil} alt='per'></Image></h3></Link>
             </div>
         </header>
     )

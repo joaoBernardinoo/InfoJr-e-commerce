@@ -25,6 +25,17 @@
   background-color: black;
   border: 1px solid var(--c2, #F9F9F9);
 }
+.ba_email
+{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.arrow
+{
+  background-color: white;
+  padding: 8px;
+}
 .inf_dir
 {
   padding-right: 160px;

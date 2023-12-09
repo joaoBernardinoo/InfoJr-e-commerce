@@ -1,7 +1,6 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
 
-
 import card_es_1 from './imagens/cards_coleção/promocoes.png';
 import card_esq_2 from './imagens/cards_coleção/perfume.png';
 import card_dir from './imagens/cards_coleção/whte.png';
@@ -12,7 +11,6 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { useState, useContext, useEffect } from 'react';
-
 
 function debugFunction() {
   console.log('debug');
@@ -100,7 +98,6 @@ const produto = [
 export default function Home() {
   const { products } = useContext(ProductContext);
 
-
   function updateProducts() {
     if (products.length > 0) return;
     for (let i = 0; i < produto.length; i++) {
@@ -131,40 +128,42 @@ export default function Home() {
           </div>
           <div className={styles.cardcolecao}>
             <div className={styles.esquerda}>
-              <Image src={card_es_1} alt="ces1"></Image>
-              <Image src={card_esq_2} alt="ces2"></Image>
+              <Image className={styles.imesq} src={card_es_1} alt="ces1" width={800} height={430}></Image>
+              <Image className={styles.imesq} src={card_esq_2} alt="ces2" width={800} height={430}></Image>
+
             </div>
             <div className={styles.direita}>
-              <Image className={styles.imdi} src={card_dir} alt="ces2"></Image>
+              <Image className={styles.imdi} src={card_dir} alt="ces2" width={1000} height={165}></Image>
             </div>
           </div>
         </div>
-        <div className={styles.box3}>
+        <div className="box3">
           <div className={styles.subtitulo}>
             <p>Produtos</p>
-          </div>
-            <div className={styles.gridContainer}>
+            <div className={styles.produtos}>
+              {/*Joga todos os produtos na tela*/}
               {products.map((prod, key) => (
-                <div key={key} className={styles.outros_produtos}>
-                  <div className={styles.img_prod}>
-                    <Image src={prod.image[0]} className='card_img' alt="prod" width="360" height="360"></Image>
+                <div key={key} className={styles.card_produtos}>
+                  <div className={styles.card_img}>
+                    <Image src={prod.image[0]} className={styles.card_img} alt="prod" width={165} height={165}></Image>
                   </div>
-                  <div className={styles.inf_prod}>
-                    <div className={styles.ti}>{prod.name}</div>
+                  <div className={styles.informacoes}>
+                    <h2>{prod.name}</h2>
                     <div className={styles.precos}>
-                      <div className={styles.prom}>R$ {prod.current_price}</div>
-                      <div className={styles.antigo}>R$ {prod.old_price}</div>
+                      <div className={styles.current_price}>R$ {prod.current_price}</div>
+                      <div className={styles.old_price}>R$ {prod.old_price}</div>
                     </div>
-                    <div>{prod.available_quantity} Itens em estoque</div>
-                  </div>
+                    <p className={styles.disponivel}>{prod.available_quantity} itens em estoque</p>
+                  </div>                  
                 </div>
               ))}
             </div>
-            <div>
+            <div className={styles.subtitulo}>
               <p>
-                <Link href="/produtos"><button className={styles.cbut}>Ver Mais</button></Link>
+                <button className={styles.cbut}><Link href='/produtos'>Ver Mais</Link></button>
               </p>
             </div>
+          </div>
         </div>
       </div>
     </main>

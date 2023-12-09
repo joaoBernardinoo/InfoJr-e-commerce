@@ -1,80 +1,12 @@
-.box1
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card_img {
+  width: 360px;
+  height: 360px;
 }
-.titulo
-{
-    margin-top: 20px;
-}
-.barra
-{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    gap: 1000px;
-}
-.lad_esq
-{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.cima
-{
-    display: flex;
-    gap: 50px;
-}
-.lad_dir
-{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.baixo
-{
-    display: flex;
-    flex-direction: row;
-}
-.gridContainer 
-{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-.outros_produtos
-{
+
+.outros_produtos {
   display: flex;
-  flex-direction: column;
-}
-.inf_prod
-{
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
   gap: 10px;
-}
-.precos
-{
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 20px;
-}
-.ti
-{
-  font-weight: 700;
-  font-size: 20px;
-}
-.prom
-{
-  font-size: 26px;
-  font-weight: 400;
-}
-.antigo
-{
-  text-decoration-line: line-through;
-  line-height: 26px;
-  color: gray;
+  justify-content: center;
+  flex-wrap: wrap;
 }
