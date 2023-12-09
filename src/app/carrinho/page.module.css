@@ -344,3 +344,13 @@
     color: #808080;
   }
 }
+
+.btnAdicionar {
+  background: black;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 0px;
+  width: 168px;
+  height: 36px;
+  cursor: pointer;
+}
