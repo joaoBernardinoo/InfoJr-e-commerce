@@ -95,7 +95,6 @@ const produto = [
     image: [ProductImage.Bandana1, produtos, produtos],
   },
 ];
-// Alo alo testando
 
 export default function Home() {
   const { products } = useContext(ProductContext);
