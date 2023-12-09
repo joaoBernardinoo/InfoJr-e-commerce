@@ -10,10 +10,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import ProductContext from '@/contexts/products';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ProductImage } from '@/enums/product_images';
 import { Product } from '@/types/products';
-import { otherProducts } from '@/utils/functions';
+import { otherProducts, addCart } from '@/utils/functions';
 
 const produto = [
   {
@@ -91,15 +91,8 @@ const produto = [
 ];
 // Ao colocar qualquer CEP, retorna o mesmo valor de frete ( ex: R$20,00)
 export default function Carrinho() {
-  const [visibilidadeFrete, setVisibilidadeFrete] = useState(false);
-
-  const visFrete = () => {
-    setVisibilidadeFrete(state => !state)
-  }
-
   const { products, cart, setCart, recent } = useContext(ProductContext);
-  if (cart.length == 0) setCart(produto);
-
+  
   function deleteCart(id: number) {
     const newCart = cart.filter(prod => prod.id !== id);
     setCart(newCart);
@@ -120,6 +113,12 @@ export default function Carrinho() {
   function vendido(){
     alert('Compra finalizada!');
     clearCart();
+  }
+
+  function adiCart(prod: Product) {
+    const newCart = cart;
+    addCart(newCart, prod)
+    setCart(newCart);
   }
 
   const frete = 20
@@ -224,17 +223,13 @@ export default function Carrinho() {
                       type="text"
                       placeholder="Informe o CEP"
                     />
-                    <button className={style.freteBtn} onClick={visFrete}>
+                    <button className={style.freteBtn}>
                       <FaArrowRight />
                     </button>
                   </div>
-                  { visibilidadeFrete ? (
-                    <p className={style.msgRodape}>
-                      Preço de frete para Salvador, Bahia: R$ 20,00
-                    </p>
-                  ) : (
-                    <></>
-                  ) }
+                  <p className={style.msgRodape}>
+                    Preço de frete para Salvador, Bahia: R${frete}
+                  </p>
                 </div>
               </div>
               <div className={style.botoesCarrinho}>
@@ -257,8 +252,8 @@ export default function Carrinho() {
           <h1>Vistos Recentemente</h1>
         </div>
         <div className={style.recentesCards}>
-          {cart.map((prod, key) => (
-            <div className={style.cardContainer}>
+          {recent.map((prod, key) => (
+            <div key={key} className={style.cardContainer}>
               <Link
                 onClick={() => {
                   handleProduct(prod);
@@ -295,7 +290,7 @@ export default function Carrinho() {
                 {/* Adicionar ao carrinho */}
                 <button
                   className={style.btnAdicionar}
-                  onClick={() => (console.log('Deu certo'))}
+                  onClick={() => adiCart(prod)}
                   style={{ textDecoration: 'none', color: 'white' }}
                 >
                   Adicionar ao Carrinho
@@ -310,7 +305,7 @@ export default function Carrinho() {
           <h1>Outros Produtos</h1>
         </div>
         <div className={style.outrosProdsCards}>
-          {cart.map((prod, key) => (
+          {otherProducts(products).map((prod, key) => (
             <Link
               onClick={() => {
                 handleProduct(prod);

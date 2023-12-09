@@ -33,10 +33,23 @@ const EditProductPopup: React.FC<EditProductPopupProps> = ({ product, onClose, o
   console.log(product);
 
   return (
-    <div className={styles.overlay}>
-      <div className={styles.box1}>
-        <div className={styles.titulo}>
-          <div><h1>Editar</h1></div>
+    <div className={styles.box1}>
+      <div className={styles.titulo}>
+        <h1>{product ? "Editar" : "Criar"}</h1>
+      </div>
+      <div className={styles.box2}>
+        <div className={styles.lad_esq}>
+          <div className={styles.meio}>
+            <div><h1>FOTAO</h1></div>
+            <button onClick={handleSave}>Salvar</button>
+            <button onClick={onClose}>Cancelar</button>
+          </div>
+          <div className={styles.maisesquerdo}>
+            <h3>foto1</h3>
+            <h3>foto2</h3>
+            <h3>foto3</h3>
+            <h3>foto4</h3>
+          </div>
         </div>
         <div className={styles.box2}>
           <div className={styles.lad_esq}>
