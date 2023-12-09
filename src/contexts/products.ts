@@ -4,11 +4,15 @@ import { Product
 
 interface ContextData {
     products: Product[];
+    recent: Product[];
+    cart: Product[];
     updateProducts: (id: number) => void;
 }
 
 const ProductContext = React.createContext<ContextData>({
     products: [],
+    recent: [],
+    cart: [],
     updateProducts: (id: number) => null
 })
 
