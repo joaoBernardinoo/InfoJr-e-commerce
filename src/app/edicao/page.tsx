@@ -10,8 +10,9 @@ import { Product } from '@/types/products';
 import ProductContext from '@/contexts/products';
 
 export default function Edicao() {
-  const [isModalVisible, setIsModalVisible] = useState(true);
-  const [prods, setProds] = useState([
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  // ignore esse
+  const [products, setProds] = useState<Product[]>([
     {
       id: 1,
       name: 'Blvck Mohair Branded Sweater1',
@@ -85,9 +86,10 @@ export default function Edicao() {
       image: [produtos, produtos, produtos],
     },
   ]);
-
+  //
   // use context do react para passar os produtos para o carrinho
-  const { products } = useContext(ProductContext);
+  // const { products } = useContext(ProductContext);
+
   
   const [activeProduct, setActiveProduct] = useState(products[0]);
   function edit(prod: Product) {
@@ -103,8 +105,6 @@ export default function Edicao() {
 
   return (
     <main>
-      {/*Joga todos os produtos na tela*/}
-
       {isModalVisible ? (
         <EditProductPopup
           product={activeProduct}

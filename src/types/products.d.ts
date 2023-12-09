@@ -1,7 +1,7 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { StaticImageData } from 'next/image';
 
-export interface Product {
+export type Product = {
   id: number;
   name: string;
   current_price: float;

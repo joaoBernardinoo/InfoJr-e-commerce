@@ -1,6 +1,7 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
-import card_esq_1 from './imagens/cards_coleção/promocoes.png';
+
+import card_esq_1 from './imagens/cards_coleção/promocoes.png'
 import card_esq_2 from './imagens/cards_coleção/perfume.png';
 import card_dir from './imagens/cards_coleção/whte.png';
 

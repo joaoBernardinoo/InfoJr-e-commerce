@@ -28,6 +28,7 @@ const EditProductPopup: React.FC<EditProductPopupProps> = ({ product, onClose, o
     onSave(editedProduct);
     onClose();
   };
+  console.log(product)
 
   return (
     <div className="edit-product-popup">
