@@ -93,7 +93,6 @@ const produto = [
     image: [produtos, produtos, produtos],
   },
 ];
-// Alo alo testando
 
 export default function Home() {
   const { products } = useContext(ProductContext);
@@ -139,7 +138,7 @@ export default function Home() {
         </div>
         <div className="box3">
           <div className={styles.subtitulo}>
-            <p>Produtos</p><<<<<<< TSouza
+            <p>Produtos</p>
             <div className={styles.produtos}>
               {/*Joga todos os produtos na tela*/}
               {products.map((prod, key) => (
