@@ -13,7 +13,6 @@ import ProductContext from '@/contexts/products';
 import { useContext } from 'react';
 import { ProductImage } from '@/enums/product_images';
 
-import { addCart, removeCart } from '@/utils/functions';
 
 
 const produto = [
@@ -100,6 +99,14 @@ export default function Carrinho() {
     setCart(newCart);
   }
 
+  const totalValue = cart.reduce((accumulator, product) => {
+    return accumulator + product.current_price;
+  }, 0);
+
+  function clearCart(){
+    setCart([]);
+  }
+
   return (
     <main>
       {cart.length == 0 ? (
@@ -169,8 +176,8 @@ export default function Carrinho() {
               <div className={style.totalEFrete}>
                 <div className={style.valorCompra}>
                   <div className={style.subtotal}>Subtotal</div>
-                  <div className={style.valorSubtotal}>R$ {products[0].current_price},00</div>
-                </div>
+                  <div className={style.valorSubtotal}>R$ {totalValue},00</div>
+                </div>            
                 <div className={style.botaoComprar}>
                   <button className={style.comprarAgora}>Comprar Agora</button>
                 </div>
@@ -189,7 +196,7 @@ export default function Carrinho() {
               </div>
               <div className={style.botoesCarrinho}>
                 <button className={style.botaoContinuar}>Continuar Comprando</button>
-                <button className={style.botaoLimpar}>Limpar Carrinho</button>
+                <button onClick={() => clearCart()} className={style.botaoLimpar}>Limpar Carrinho</button>
               </div>
             </div>
           </div>
