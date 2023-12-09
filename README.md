@@ -1,7 +1,5 @@
 # Projeto Final PlugInfo #
-## TODO
-
-
+## TODO Back-End
 ### Prioridade Máxima
   1. `otherProducts()` ( retorna um array dos 6 primeiros produtos do array de produtos )
   1. `similarProducts()` ( função que recebe um produto e retorna um array com produtos com a mesma tag/coleção ou tipo)
@@ -28,6 +26,12 @@
   1. useEffect() no array de produtos para atualizar o localStorage
   1. Puxar os dados do banco de dados/localStorage para o array de produtos
   
+## TODO Front-End
+
+## Prioridade Máxima
+  1. Página de Produtos
+  1. DropDownMenu para os filtros
+  1. Consertar header para o mobile
   
 
 ## Padrão de commit
