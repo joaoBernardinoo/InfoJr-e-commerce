@@ -45,8 +45,6 @@ export default function Produtos() {
                 value={word}
                 placeholder="Pesquisar"
               ></input>
-              {/*Tentar atualizar o filtro com o onChange no input*/}
-              <button onClick={() => handleSearch()}>Pesquisar</button>
               <h3>X itens encontrados</h3>
             </div>
             <div className={styles.l_dir}>
