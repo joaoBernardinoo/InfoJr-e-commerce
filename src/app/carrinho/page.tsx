@@ -94,9 +94,10 @@ export default function Carrinho() {
   ];
   setCart(produto)
   
-  // function delete(){
-  //   setCart(removeCart(cart, ))
-  // }
+  function deleteCart(id: number) {
+    const newCart = cart.filter((prod) => prod.id !== id);
+    setCart(newCart);
+  }
   // function updateProducts() {
   //   if (products.length > 0) return;
   //   for (let i = 0; i < produto.length; i++) {
@@ -171,7 +172,10 @@ export default function Carrinho() {
                       </button>
                     </>
                     <>
-                      <button className={style.botao}>
+                      <button
+                      onClick={() => deleteCart(prod.id)}
+                      className={style.botao}
+                      >
                         <FiTrash />
                       </button>
                     </>

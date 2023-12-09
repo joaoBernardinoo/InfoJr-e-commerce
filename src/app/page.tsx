@@ -78,7 +78,6 @@ export default function Home() {
               {/*Joga todos os produtos na tela*/}
               {otherProducts(products).map((prod: Product, key) => 
               {
-                {console.log(typeof(key))}
                 return (
                 <div key={key} className={styles.card_produtos}>
                   
