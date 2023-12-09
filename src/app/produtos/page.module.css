@@ -40,10 +40,32 @@
 {
     font-size: 12px;
     color: var(--c10, #1B1B1B);
-    margin-top: 5vh;
     display: flex;
     flex-direction: column;
+    height: 36px;
 }
+
+.barraPesquisa {
+    border: solid 1px;
+}
+
+.campoPesquisa {
+    border: none;
+    box-sizing: border-box;
+    flex-grow: 2;
+    height: 100%;
+    padding-left: 15px;
+}
+
+.botaoBusca {
+    height: 36px;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 .filtro_b
 {
     display: flex;
