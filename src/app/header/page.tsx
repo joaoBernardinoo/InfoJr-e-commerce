@@ -47,9 +47,9 @@ export default function Header() {
                 <header className={styles.header}>
                     <Link href="/" style={{ textDecoration: 'none', color: 'black' }}><h3 className={styles.logo}>BLCVK</h3></Link>
                     <div className={styles.pessoal}>
-                        <h3><Image src={carrinho} alt='car'></Image></h3>
-                        <h3><Image src={favoritos} alt='fav'></Image></h3>
-                        <h3><Image src={perfil} alt='per'></Image></h3>
+                      <Link href="/carrinho"><h3><Image src={carrinho} alt='car'></Image></h3></Link>
+                      <Link href="/favoritos"><h3><Image src={favoritos} alt='fav'></Image></h3></Link>
+                      <Link href="/perfil"><h3><Image src={perfil} alt='per'></Image></h3></Link>
                     </div>
                     <div id="ddmenu" className={styles.ddmenu}><DropdownMenu /></div>
                     
