@@ -9,13 +9,12 @@ import EditProductPopup from '@/components/productModal';
 import { useState, useContext } from 'react';
 import { Product } from '@/types/products';
 import ProductContext from '@/contexts/products';
-import { updateProductsArray } from '@/utils/functions';
 import { Placeholder } from 'react-bootstrap';
 
 export default function Edicao() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   // use context do react para passar os produtos para o carrinho
-  const { products} = useContext(ProductContext);
+  const { products, setProducts} = useContext(ProductContext);
   const [ visibleProducts, setVisibleProducts ] = useState(products);
 
   const [activeProduct, setActiveProduct] = useState(products[0]);
@@ -24,7 +23,9 @@ export default function Edicao() {
     setIsModalVisible(true);
   }
   function remove(id: number) {
-    updateProductsArray(products, id);
+    const newProducts = products.filter((prod) => prod.id !== id);
+    setProducts(newProducts);
+    setVisibleProducts(newProducts);
     console.log('removi');
   }
   function save(editedProduct: Product) {
@@ -94,7 +95,7 @@ export default function Edicao() {
             className={styles.card_img}
             width={165}
             height={165}
-            alt="prod" width={360} height={360}
+            alt="prod"
           ></Image>
             <div className={styles.informacoes}>
               <h2>{prod.name}</h2>
