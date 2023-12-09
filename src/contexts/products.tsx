@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import React from 'react';
 import { Product } from '@/types/products';
 import { ProductImage } from '@/enums/product_images';
@@ -8,6 +8,8 @@ interface ContextData {
   recent: Product[];
   cart: Product[];
   product: Product;
+  collection: string[];
+  category: string[];
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
   setRecent: React.Dispatch<React.SetStateAction<Product[]>>;
   setCart: React.Dispatch<React.SetStateAction<Product[]>>;
@@ -22,6 +24,8 @@ export const ProductContext = React.createContext<ContextData>({
   recent: [],
   cart: [],
   product: {} as Product,
+  collection: [],
+  category: [],
   setProducts: () => {},
   setRecent: () => {},
   setCart: () => {},
@@ -110,18 +114,20 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [product, setProduct] = React.useState<Product>({} as Product);
 
   return (
-    <ProductContext.Provider value={
-      {
+    <ProductContext.Provider
+      value={{
         products,
         recent,
         cart,
         product,
+        collection: ['Keith Haring & Blvck', 'Fortnite & Blvck', 'Mohair', 'Wthe'],
+        category: ['Camisetas', 'Casacos', 'Calças', 'Acessórios', 'Feminino', 'Masculino'],
         setProducts,
         setRecent,
         setCart,
         setProduct,
-      }
-    }>
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );

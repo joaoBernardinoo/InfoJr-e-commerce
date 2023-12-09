@@ -10,11 +10,10 @@ import ProductContext from '@/contexts/products';
 
 import { filterProducts, otherProducts } from '@/utils/functions';
 import { searchProducts } from '@/utils/functions';
-import { FaSearch } from "react-icons/fa";
-
+import { FaSearch } from 'react-icons/fa';
 
 export default function Produtos() {
-  const { products, product, setProduct } = useContext(ProductContext);
+  const { products, product, setProduct, collection, category } = useContext(ProductContext);
 
   const [prodsFilter, setProdsFilter] = useState(products);
   const [word, setWord] = useState('');
@@ -32,11 +31,19 @@ export default function Produtos() {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleClick = (): void => {
-    setIsActive(state => !state);
+    setIsActive((state) => !state);
   };
 
-  function handleClick(product: Product) {
+  function handleProduct(product: Product) {
     setProduct(product);
+  }
+
+  function handleChange(e: any) {
+    if (e.target.checked) {
+      setTags([...tags, e.target.value]);
+    } else {
+      setTags(tags.filter((tag) => tag !== e.target.value));
+    }
   }
 
   return (
@@ -62,18 +69,19 @@ export default function Produtos() {
             <div className={styles.l_esq}>
               <div className={styles.barraPesquisa}>
                 <input
-                  onChange={e => setWord(e.target.value)}
+                  onChange={(e) => setWord(e.target.value)}
                   className={styles.campoPesquisa}
                   value={word}
                   placeholder="Pesquisar"
                 ></input>
-                {/*Tentar atualizar o filtro com o onChange no input*/}
-                <button className={styles.botaoBusca} onClick={() => handleSearch()}><FaSearch /></button>
+                <button className={styles.botaoBusca} onClick={() => handleSearch()}>
+                  <FaSearch />
+                </button>
               </div>
               <h3>X itens encontrados</h3>
             </div>
             <div className={styles.l_dir}>
-              { isActive ? (
+              {isActive ? (
                 <>
                   <button className={styles.filtro_b} onClick={handleClick}>
                     <div>Filtros</div>
@@ -83,46 +91,25 @@ export default function Produtos() {
                   </button>
                   <div className={styles.filtro}>
                     <div className={styles.listaCategorias}>
-                      <ul style={{listStyle:'none'}}>
+                      <ul style={{ listStyle: 'none' }}>
                         <h4>Categorias</h4>
-                        <li className={styles.list_item}>
-                          <input type="checkbox" />Camisetas
-                        </li>
-                        <li className={styles.list_item}>
-                          <input type="checkbox" />Acessórios
-                        </li>
-                        <li className={styles.list_item}>
-                          <input type="checkbox" />Calças
-                        </li>
-                        <li className={styles.list_item}>
-                          <input type="checkbox" />Casacos
-                        </li>
-                        <li className={styles.list_item}>
-                          <input type="checkbox" />Feminino
-                        </li>
-                        <li className={styles.list_item}>
-                          <input type="checkbox" />Masculino
-                        </li>
+                        {category.map((cat) => (
+                          <li>
+                            <input onChange={handleChange} value={cat} type="checkbox" />
+                            {cat}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                     <div className={styles.listaColecoes}>
-                      <ul style={{listStyle:'none'}}>
+                      <ul style={{ listStyle: 'none' }}>
                         <h4>Coleções</h4>
-                        <li>
-                          <input type="checkbox" />Keith Haring & Blvck
-                        </li>
-                        <li>
-                          <input type="checkbox" />Fortnite & Blvck
-                        </li>
-                        <li>
-                          <input type="checkbox" />Mohair
-                        </li>
-                        <li>
-                          <input type="checkbox" />Camisetas
-                        </li>
-                        <li>
-                          <input type="checkbox" />Whte
-                        </li>
+                        {collection.map((col) => (
+                          <li>
+                            <input onChange={handleChange} value={col} type="checkbox" />
+                            {col}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -138,15 +125,18 @@ export default function Produtos() {
                 </>
               )}
               <div className={styles.tags}>
-                <h3>tag 1</h3>
-                <h3>tag 2</h3>
+                {tags.map((tag) => (
+                  <div className={styles.tag}>{tag}</div>
+                ))}
               </div>
             </div>
           </div>
           <div className={styles.produtos}>
             {prodsFilter.map((prod, key) => (
               <Link
-                onClick={() => {handleClick(prod)}}
+                onClick={() => {
+                  handleProduct(prod);
+                }}
                 style={{ textDecoration: 'none', color: 'black' }}
                 key={key}
                 href={`/produtos/`}
@@ -154,30 +144,20 @@ export default function Produtos() {
                 <div className={styles.card_produtos}>
                   <div className={styles.card_img}>
                     <Image
-                     
-                    src={prod.image[0]}
-                     
-                    className={styles.card_img}
-                     
-                    alt="prod"
-                     
-                    width={165}
-                     
-                    height={165}
-                    
-                  ></Image>
+                      src={prod.image[0]}
+                      className={styles.card_img}
+                      alt="prod"
+                      width={165}
+                      height={165}
+                    ></Image>
                   </div>
                   <div className={styles.informacoes}>
                     <h2>{prod.name}</h2>
                     <div className={styles.precos}>
-                      <div className={styles.current_price}>
-                      R$ {prod.current_price}
-                    </div>
+                      <div className={styles.current_price}>R$ {prod.current_price}</div>
                       <div className={styles.old_price}>R$ {prod.old_price}</div>
                     </div>
-                    <p className={styles.disponivel}>
-                    {prod.available_quantity} itens em estoque
-                  </p>
+                    <p className={styles.disponivel}>{prod.available_quantity} itens em estoque</p>
                   </div>
                 </div>
               </Link>
@@ -185,10 +165,7 @@ export default function Produtos() {
           </div>
         </div>
         <div className={styles.editar}>
-          <Link
-            href="/edicao"
-            style={{ textDecoration: 'none', color: 'white' }}
-          >
+          <Link href="/edicao" style={{ textDecoration: 'none', color: 'white' }}>
             <div>Editar</div>
           </Link>
         </div>
