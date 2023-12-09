@@ -5,13 +5,12 @@ import produtos from '../imagens/cards_produtos/card1.png';
 import styles from './page.module.css';
 import Image from 'next/image';
 import EditProductPopup from '@/components/productModal';
-import { useState } from 'react';
-
-
+import { useState,useContext } from 'react';
+import { Product } from '@/types/products';
+import ProductContext from '@/contexts/products';
 
 export default function Edicao() {
   const [isModalVisible, setIsModalVisible] = useState(true);
-
   const [prods, setProds] = useState([
     {
       id: 1,
@@ -87,34 +86,35 @@ export default function Edicao() {
     },
   ]);
 
-  function remove(id: number) {
-    setProds(prods.filter((prod) => prod.id !== id));
-  }~~
-  function save(editedProduct: any) {
-    setProds(prods.map((prod) => (prod.id === editedProduct.id ? editedProduct : prod)));
+  // use context do react para passar os produtos para o carrinho
+  const { products } = useContext(ProductContext);
+  
+  const [activeProduct, setActiveProduct] = useState(products[0]);
+  function edit(prod: Product) {
+    setActiveProduct(prod);
+    setIsModalVisible(true);
   }
+  function remove(id: number) {
+    setProds(products.filter((prod) => prod.id !== id));
+  }
+  function save(editedProduct: any) {
+    setProds(products.map((prod) => (prod.id === editedProduct.id ? editedProduct : prod)));
+  };
 
   return (
     <main>
       {/*Joga todos os produtos na tela*/}
-      <button
-        onClick={() => {
-          setIsModalVisible(true);
-        }}
-      >
-        Editar Produtos
-      </button>
+
       {isModalVisible ? (
         <EditProductPopup
-          product={prods[0]}
+          product={activeProduct}
           onClose={() => {
             setIsModalVisible(false);
           }}
-          onSave={() => {
-          }}
+          onSave={() => {}}
         />
       ) : null}
-      {prods.map((prod) => (
+      {products.map((prod) => (
         <div key={prod.id} className={styles.outros_produtos}>
           <Image src={prod.image[0]} className={styles.card_img} alt="prod"></Image>
           <div>
@@ -123,6 +123,13 @@ export default function Edicao() {
             <p>{prod.old_price}</p>
             <p>Quantidade {prod.available_quantity}</p>
           </div>
+          <button
+            onClick={() => {
+              edit(prod);
+            }}
+          >
+            Editar
+          </button>
           <button onClick={() => remove(prod.id)}>Remover</button>
         </div>
       ))}
