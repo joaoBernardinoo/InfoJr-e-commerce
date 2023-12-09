@@ -9,7 +9,6 @@ import EditProductPopup from '@/components/productModal';
 import { useState, useContext, useEffect } from 'react';
 import { Product } from '@/types/products';
 import ProductContext from '@/contexts/products';
-import { Placeholder } from 'react-bootstrap';
 import { searchProducts, filterProducts } from '@/utils/functions';
 
 export default function Edicao() {
@@ -17,7 +16,6 @@ export default function Edicao() {
   // use context do react para passar os produtos para o carrinho
   const { products, setProducts } = useContext(ProductContext);
   const [visibleProducts, setVisibleProducts] = useState(products);
-  const [tags, setTags] = useState<string[]>([]);
 
   const [prodsFilter, setProdsFilter] = useState(products)
   const [word, setWord] = useState("")
@@ -38,6 +36,7 @@ export default function Edicao() {
     setActiveProduct(prod);
     setIsModalVisible(true);
   }
+  
   function remove(id: number) {
     const newProducts = products.filter((prod) => prod.id !== id);
     setProducts(newProducts);

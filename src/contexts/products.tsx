@@ -7,9 +7,11 @@ interface ContextData {
   products: Product[];
   recent: Product[];
   cart: Product[];
+  product: Product;
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
   setRecent: React.Dispatch<React.SetStateAction<Product[]>>;
   setCart: React.Dispatch<React.SetStateAction<Product[]>>;
+  setProduct: React.Dispatch<React.SetStateAction<Product>>;
 }
 interface ProductProviderProps {
   children: React.ReactNode;
@@ -19,9 +21,11 @@ export const ProductContext = React.createContext<ContextData>({
   products: [],
   recent: [],
   cart: [],
+  product: {} as Product,
   setProducts: () => {},
   setRecent: () => {},
   setCart: () => {},
+  setProduct: () => {},
 });
 
 const produto = [
@@ -103,6 +107,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [products, setProducts] = React.useState<Product[]>(produto);
   const [recent, setRecent] = React.useState<Product[]>([]);
   const [cart, setCart] = React.useState<Product[]>([]);
+  const [product, setProduct] = React.useState<Product>({} as Product);
 
   return (
     <ProductContext.Provider value={
@@ -110,9 +115,11 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
         products,
         recent,
         cart,
+        product,
         setProducts,
         setRecent,
         setCart,
+        setProduct,
       }
     }>
       {children}
