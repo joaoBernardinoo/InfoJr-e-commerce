@@ -7,8 +7,7 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductContext from '@/contexts/products';
-import { filterProducts, otherProducts } from '@/utils/functions';
-import { searchProducts } from '@/utils/functions';
+import { filterProducts, otherProducts, searchProducts } from '@/utils/functions';
 
 export default function Produtos() {
 
@@ -16,13 +15,14 @@ export default function Produtos() {
 
   const [prodsFilter, setProdsFilter] = useState(products)
   const [word, setWord] = useState("")
+  const [tags, setTags] = useState<string[]>([])
 
   useEffect(() => {
     handleSearch();
-  }, [word]); // Observa mudanças no estado 'word'
+  }, [word,tags]); // Observa mudanças no estado 'word'
 
   function handleSearch() {
-      const filtered = word ? searchProducts(products, word) : products;
+      const filtered = word ? searchProducts(filterProducts(products,tags), word) : products;
       setProdsFilter(filtered);
   }
 
