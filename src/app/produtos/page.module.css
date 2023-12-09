@@ -82,9 +82,9 @@
     background-color: #1B1B1B;
     align-items: center;
     gap: 5px;    
-    position: absolute;
+    /* position: absolute;
     top: 0px;
-    right: 0px;
+    right: 0px; */
 }
 
 .filtro {
