@@ -93,7 +93,6 @@ const produto = [
 
 export default function Carrinho() {
   const { products, cart, setCart, recent } = useContext(ProductContext);
-  // deve tirar dps
   if (cart.length == 0) setCart(produto);
   
   function deleteCart(id: number) {
