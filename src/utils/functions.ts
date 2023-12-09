@@ -11,7 +11,7 @@ export function filterProducts(prods: Product[], tags: string[]){
 }
 
 export function searchProducts(prods: Product[], name: string){
-    var searchProds = prods.filter((product: Product) => name.includes(product.name));
+    var searchProds = prods.filter((product: Product) => product.name.includes(name));
     return searchProds
 }
 
