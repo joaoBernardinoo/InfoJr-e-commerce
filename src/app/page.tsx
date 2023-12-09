@@ -1,6 +1,6 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
-
+import card_esq_1 from './imagens/cards_coleção/promocoes.png';
 import card_esq_2 from './imagens/cards_coleção/perfume.png';
 import card_dir from './imagens/cards_coleção/whte.png';
 
@@ -129,7 +129,7 @@ export default function Home() {
           </div>
           <div className={styles.cardcolecao}>
             <div className={styles.esquerda}>
-              <Image className={styles.imesq} src={card_es_1} alt="ces1" width={800} height={430}></Image>
+              <Image className={styles.imesq} src={card_esq_1} alt="ces1" width={800} height={430}></Image>
               <Image className={styles.imesq} src={card_esq_2} alt="ces2" width={800} height={430}></Image>
             </div>
             <div className={styles.direita}>
