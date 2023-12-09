@@ -15,6 +15,7 @@ import { ProductImage } from '@/enums/product_images';
 
 import { addCart, removeCart } from '@/utils/functions';
 
+
 const produto = [
   {
     id: 1,
@@ -89,10 +90,12 @@ const produto = [
     image: [ProductImage.Bandana1],
   },
 ];
+
 export default function Carrinho() {
   const { products, cart, setCart, recent } = useContext(ProductContext);
+  // deve tirar dps
   if (cart.length == 0) setCart(produto);
-
+  
   function deleteCart(id: number) {
     const newCart = cart.filter((prod) => prod.id !== id);
     setCart(newCart);
