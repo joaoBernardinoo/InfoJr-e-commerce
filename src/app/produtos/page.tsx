@@ -25,13 +25,9 @@ export default function Produtos() {
   }, [word, tags]);
 
   function handleSearch() {
-    let filtered = filterProducts(products, tags); 
-    if (word) {
-      filtered = searchProducts(filtered, word);
-    }
+    const filtered = word ? searchProducts(filterProducts(products, tags), word) : products;
     setProdsFilter(filtered);
   }
-  
 
   const [isActive, setIsActive] = useState<boolean>(false);
 
