@@ -12,7 +12,7 @@ import ProductContext from '@/contexts/products';
 export default function Edicao() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   // ignore esse
-  const [products, setProds] = useState<Product[]>([
+  const [products1, setProds] = useState<Product[]>([
     {
       id: 1,
       name: 'Blvck Mohair Branded Sweater1',
@@ -88,7 +88,7 @@ export default function Edicao() {
   ]);
   //
   // use context do react para passar os produtos para o carrinho
-  // const { products } = useContext(ProductContext);
+  const { products } = useContext(ProductContext);
 
   
   const [activeProduct, setActiveProduct] = useState(products[0]);
@@ -116,7 +116,7 @@ export default function Edicao() {
       ) : null}
       {products.map((prod) => (
         <div key={prod.id} className={styles.outros_produtos}>
-          <Image src={prod.image[0]} className={styles.card_img} alt="prod"></Image>
+          <Image src={prod.image[0]} className={styles.card_img} width={165} height={165} alt="prod"></Image>
           <div>
             <h2>{prod.name}</h2>
             <p>{prod.current_price}</p>
