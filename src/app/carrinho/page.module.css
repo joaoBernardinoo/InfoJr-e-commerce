@@ -1,0 +1,126 @@
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  font-size: 59px;
+}
+
+.prod_barra {
+  display: flex;
+  position: relative;
+  bottom: 40px;
+}
+
+.carVazio {
+  font-size: 33px;
+  font-weight: 700;
+}
+
+.letrasPeq {
+  font-size: 14px;
+}
+
+.botao {
+  width: 360px;
+  height: 60px;
+  margin-top: 3vh;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #1b1b1b;
+  box-shadow: 8px 8px 0px 0px #bdbdbd;
+}
+
+.areaPagina {
+  display: flex;
+}
+
+.card_produtos {
+  background: salmon;
+  border: solid 1px;
+  width: 645px;
+  height: 170px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.atribsProduto {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.imgBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 170px;
+  height: 100%;
+}
+
+.infoCard .nomeProd {
+  width: 297px;
+  font-size: 20px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.precos {
+  width: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currentPrice {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.oldPrice {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b6b6b;
+  text-decoration: line-through;
+  margin-left: 2px;
+}
+
+.infoCompra {
+  border: solid 1px;
+  width: 360px;
+  height: 456px;
+}
+
+.qtdRestante {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6B6B6B;
+}
+
+.qtdTamanho {
+    display: flex;
+    font-size: 10px;
+}
+
+.botoes {
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background: green;
+}
+
+.botao {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
