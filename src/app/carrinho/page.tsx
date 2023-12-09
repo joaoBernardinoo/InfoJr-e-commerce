@@ -199,18 +199,19 @@ export default function Carrinho() {
                   <button className={style.comprarAgora}>Comprar Agora</button>
                 </div>
                 <div className={style.frete}>
-                  <p>Calcular Frete</p>
+                  <p className={style.calcFrete}>Calcular Frete</p>
                   <div className={style.freteInput}>
                     <input className={style.freteTexto} type='text' placeholder='Informe o CEP' />
                     <button className={style.freteBtn}>
                       <FaArrowRight />
                     </button>
                   </div>
+                  <p className={style.msgRodape}>Preço de frete para Salvador, Bahia: R$ {products[0].current_price}</p>
                 </div>
               </div>
               <div className={style.botoesCarrinho}>
-                <button className={style.botaoContinuar}></button>
-                <button className={style.botaoLimpar}></button>
+                <button className={style.botaoContinuar}>Continuar Comprando</button>
+                <button className={style.botaoLimpar}>Limpar Carrinho</button>
               </div>
 
             </div>
