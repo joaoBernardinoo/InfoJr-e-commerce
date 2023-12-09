@@ -96,8 +96,8 @@
   }
 
 }
-
-.produtos {
+.produtos 
+{
   width: 1120px;
   display: grid;
   grid-template-columns: auto auto auto;
