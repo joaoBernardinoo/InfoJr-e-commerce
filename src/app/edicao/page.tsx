@@ -1,5 +1,6 @@
 'use client';
-import filter from '../imagens/filtro/filter_list.png'import mais_b from '../imagens/filtro/add.png'
+import filter from '../imagens/filtro/filter_list.png'
+import mais_b from '../imagens/filtro/add.png'
 import mais_p from '../imagens/filtro/add (1).png'
 
 import styles from './page.module.css';
