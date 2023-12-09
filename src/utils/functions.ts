@@ -7,9 +7,7 @@ export function otherProducts(prods: Product[]) {
 
 export function filterProducts(prods: Product[], tags: string[]) {
   var similarProds = prods.filter((product: Product) =>
-    tags.every((tag: string) => {
-      product.tags.includes(tag);
-    })
+    tags.every((tag: string) => product.tags.includes(tag))
   );
   return similarProds;
 }

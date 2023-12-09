@@ -13,6 +13,7 @@ import ProductContext from '@/contexts/products';
 import { useContext } from 'react';
 import { ProductImage } from '@/enums/product_images';
 import { Product } from '@/types/products';
+import { otherProducts } from '@/utils/functions';
 
 
 
@@ -112,6 +113,13 @@ export default function Carrinho() {
     setProduct(product);
   }
 
+  function vendido(){
+    alert('Compra finalizada!');
+    clearCart();
+  }
+
+  const frete = 20
+
   return (
     <main>
       {cart.length == 0 ? (
@@ -184,7 +192,7 @@ export default function Carrinho() {
                   <div className={style.valorSubtotal}>R$ {totalValue},00</div>
                 </div>            
                 <div className={style.botaoComprar}>
-                  <button className={style.comprarAgora}>Comprar Agora</button>
+                  <button onClick={() => vendido()} className={style.comprarAgora}>Comprar Agora</button>
                 </div>
                 <div className={style.frete}>
                   <p className={style.calcFrete}>Calcular Frete</p>
@@ -210,7 +218,7 @@ export default function Carrinho() {
       <div className={style.vistosRecentemente}>
         <h1 className={style.titulo}>Vistos Recentemente</h1>
         <div className={style.recentesCards}>
-          {cart.map((prod, key) => (
+          {recent.map((prod, key) => (
             <Link
               onClick={() => {
                 handleProduct(prod);
@@ -245,7 +253,7 @@ export default function Carrinho() {
       <div className={style.outrosProdutos}>
         <h1 className={style.titulo}>Outros Produtos</h1>
         <div className={style.outrosProdsCards}>
-          {cart.map((prod, key) => (
+          {otherProducts(products).map((prod, key) => (
               <Link
                 onClick={() => {
                   handleProduct(prod);
