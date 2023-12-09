@@ -1,5 +1,5 @@
 "use client"
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import produtos from '../imagens/cards_produtos/card1.png';
 import filter from '../imagens/filtro/filter_list.png';
 import { Product } from '@/types/products';
@@ -17,9 +17,13 @@ export default function Produtos() {
   const [prodsFilter, setProdsFilter] = useState(products)
   const [word, setWord] = useState("")
 
+  useEffect(() => {
+    handleSearch();
+  }, [word]); // Observa mudanças no estado 'word'
+
   function handleSearch() {
-    const found = filterProducts(prodsFilter, [])
-    setProdsFilter(searchProducts(found, word))
+      const filtered = word ? searchProducts(products, word) : products;
+      setProdsFilter(filtered);
   }
 
   return (
