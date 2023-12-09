@@ -67,7 +67,7 @@ export default function Produtos() {
         </div>
         </div>
         <div className={styles.editar}>
-          <Link href="/edicao">
+          <Link href="/edicao" style={{ textDecoration: 'none', color: 'white' }}>
             <div>Editar</div>
           </Link>
         </div>
