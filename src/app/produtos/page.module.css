@@ -83,9 +83,6 @@
     align-items: center;
     gap: 5px;
     margin-bottom: 30px;    
-    /* position: absolute;
-    top: 0px;
-    right: 0px; */
 }
 
 .filtro {
@@ -98,10 +95,6 @@
     box-shadow: 8px 8px 0px 0px #BDBDBD;
     color: #F9F9F9;
     z-index: 1;
-
-    /* position: absolute;
-    top: 42px;
-    right: 0px; */
 }
 
 .list_item {
@@ -130,12 +123,13 @@
     margin-top: 10vh;
     text-decoration: none;
 }
+
 .card_img 
 {
     width: 360px;
     height: 360px;
 }
-.produtos 
+.produtos
 {
   width: 1120px;
   display: grid;
