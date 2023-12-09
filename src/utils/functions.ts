@@ -20,8 +20,10 @@ export function searchProducts(prods: Product[], name: string) {
 }
 
 export function recentProducts(recentProducts: Product[], prod: Product) {
-  recentProducts.shift();
   recentProducts.push(prod);
+  if (recentProducts.length > 4){
+    recentProducts.shift();
+  }
 }
 
 // Carrinho
