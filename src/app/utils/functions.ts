@@ -34,3 +34,9 @@ export function clearCart(prodsCart: Product[]){
     prodsCart.length = 0
 }
 
+/*
+export function checkout(prodsCart: Product[]){
+    prodsCart.length = 0  
+}
+*/
+
