@@ -35,7 +35,7 @@ export const ProductContext = React.createContext<ContextData>({
 const produto = [
   {
     id: 1,
-    name: 'Blvck Mohair Branded Sweater HOMEPAGE',
+    name: 'Blvck Mohair Branded Sweater',
     current_price: 654.0,
     old_price: 746.0,
     available_quantity: 7,
