@@ -1,15 +1,16 @@
 "use client"
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import produtos from '../imagens/cards_produtos/card1.png';
 import filter from '../imagens/filtro/filter_list.png';
 
 import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import ProductContext from '@/contexts/products';
 
 export default function Produtos() {
 
-  const [prods, setProds] = useState([
+  const [prods2, setProds] = useState([
     {
       name: 'Blvck Mohair Branded Sweater1',
       current_price: 654.0,
@@ -77,6 +78,9 @@ export default function Produtos() {
       image: [produtos, produtos, produtos],
     },
   ]);
+  const { products } = useContext(ProductContext);
+
+
   return (
     <main>
       <div className={styles.box1}>
@@ -112,7 +116,7 @@ export default function Produtos() {
           </div>
           <div className={styles.produtos}>
           {/*Joga todos os produtos na tela*/}
-          {prods.map((prod, key) => (
+          {products.map((prod, key) => (
             <div key={key} className={styles.card_produtos}>
               <div className={styles.card_img}>
                 <Image src={prod.image[0]} className={styles.card_img} alt="prod" width={165} height={165}></Image>
