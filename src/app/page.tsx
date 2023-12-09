@@ -1,7 +1,7 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
 
-import card_esq_1 from './imagens/cards_coleção/promocoes.png'
+import card_esq_1 from './imagens/cards_coleção/promocoes.png';
 import card_esq_2 from './imagens/cards_coleção/perfume.png';
 import card_dir from './imagens/cards_coleção/whte.png';
 
@@ -67,9 +67,7 @@ const produto = [
     product_description:
       'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
     tags: ['Sweater', 'Casacos', 'Roupa'],
-    image: [
-      ProductImage.Haring1,
-    ],
+    image: [ProductImage.Haring1],
   },
   {
     id: 5,
@@ -130,11 +128,29 @@ export default function Home() {
           </div>
           <div className={styles.cardcolecao}>
             <div className={styles.esquerda}>
-              <Image className={styles.imesq} src={card_esq_1} alt="ces1" width={800} height={430}></Image>
-              <Image className={styles.imesq} src={card_esq_2} alt="ces2" width={800} height={430}></Image>
+              <Image
+                className={styles.imesq}
+                src={card_esq_1}
+                alt="ces1"
+                width={800}
+                height={430}
+              ></Image>
+              <Image
+                className={styles.imesq}
+                src={card_esq_2}
+                alt="ces2"
+                width={800}
+                height={430}
+              ></Image>
             </div>
             <div className={styles.direita}>
-              <Image className={styles.imdi} src={card_dir} alt="ces2" width={1000} height={165}></Image>
+              <Image
+                className={styles.imdi}
+                src={card_dir}
+                alt="ces2"
+                width={1000}
+                height={165}
+              ></Image>
             </div>
           </div>
         </div>
@@ -171,7 +187,9 @@ export default function Home() {
             </div>
             <div className={styles.subtitulo}>
               <p>
-                <button className={styles.cbut}><Link href='/produtos'>Ver Mais</Link></button>
+                <button className={styles.cbut}>
+                  <Link href="/produtos">Ver Mais</Link>
+                </button>
               </p>
             </div>
           </div>
