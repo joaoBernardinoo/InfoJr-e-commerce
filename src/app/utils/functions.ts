@@ -31,6 +31,6 @@ export function removeCart(prodsCart: Product[], prodId: number){
 }
 
 export function clearCart(prodsCart: Product[]){
-    prodsCart
+    prodsCart.length = 0
 }
 
