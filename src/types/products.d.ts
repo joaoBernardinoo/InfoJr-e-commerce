@@ -1,20 +1,21 @@
-import { StaticImageData } from "next/image";
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { StaticImageData } from 'next/image';
 
 export interface Product {
-    id: number,
-    name: string,
-    current_price: float,
-    old_price: float,
-    available_quantity: int,
-    size: string[],
-    product_description: string,
-    tags: string[],
-    image: StaticImageData[],
+  id: number;
+  name: string;
+  current_price: float;
+  old_price: float;
+  available_quantity: int;
+  size: string[];
+  product_description: string;
+  tags: string[];
+  image: (string | StaticImageData)[];
 }
 
 export type ProductResponse = {
-    name: string,
-    current_price: float,
-    old_price: float,
-    available_quantity: int,
-}
+  name: string;
+  current_price: float;
+  old_price: float;
+  available_quantity: int;
+};
