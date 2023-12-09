@@ -12,7 +12,6 @@ const EditProductPopup: React.FC<EditProductPopupProps> = ({ product, onClose, o
   const [editedProduct, setEditedProduct] = useState<Product>(product);
 
   useEffect(() => {
-    // Reset o estado quando o produto muda
     setEditedProduct(product);
   }, [product]);
 
