@@ -139,7 +139,7 @@ export default function Home() {
         </div>
         <div className="box3">
           <div className={styles.subtitulo}>
-            <p>Produtos</p><<<<<<< TSouza
+            <p>Produtos</p>
             <div className={styles.produtos}>
               {/*Joga todos os produtos na tela*/}
               {products.map((prod, key) => (
