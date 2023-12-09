@@ -94,7 +94,7 @@ export default function Edicao() {
             className={styles.card_img}
             width={165}
             height={165}
-            alt="prod" width={360} height={360}
+            alt="prod"
           ></Image>
             <div className={styles.informacoes}>
               <h2>{prod.name}</h2>
