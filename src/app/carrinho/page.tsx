@@ -10,7 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import ProductContext from '@/contexts/products';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { ProductImage } from '@/enums/product_images';
 import { Product } from '@/types/products';
 import { otherProducts, addCart } from '@/utils/functions';
