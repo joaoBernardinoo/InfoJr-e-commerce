@@ -112,8 +112,8 @@ export default function Edicao() {
                 </button>
               </div>
               <div className={styles.baixo}>
-                {tags.map((tag) => (
-                  <div className={styles.tag}>{tag}</div>
+                {tags.map((tag, key) => (
+                  <div key={key} className={styles.tag}>{tag}</div>
                 ))}
               </div>
             </div>
