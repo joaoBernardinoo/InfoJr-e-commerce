@@ -10,7 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import ProductContext from '@/contexts/products';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { ProductImage } from '@/enums/product_images';
 import { Product } from '@/types/products';
 import { otherProducts, addCart } from '@/utils/functions';
@@ -92,11 +92,16 @@ const produto = [
 // Ao colocar qualquer CEP, retorna o mesmo valor de frete ( ex: R$20,00)
 export default function Carrinho() {
   const { products, setProduct, cart, setCart, recent } = useContext(ProductContext);
-  
+  const [cartItens, setCartItens] = useState(cart);
+  useEffect(() => {
+    setCartItens(cartItens);
+  }, [cartItens]);
   function deleteCart(id: number) {
     const newCart = cart.filter(prod => prod.id !== id);
     setCart(newCart);
   }
+
+  
 
   const totalValue = cart.reduce((accumulator, product) => {
     return accumulator + product.current_price;
@@ -152,7 +157,7 @@ export default function Carrinho() {
           </div>
           <div className={style.areaPagina}>
             <div className={style.infoProdutos}>
-              {cart.map((prod, key) => (
+              {cartItens.map((prod, key) => (
                 <div key={key} className={style.cardProdutos}>
                   <div className={style.atribsProduto}>
                     <div className={style.imgBox}>
