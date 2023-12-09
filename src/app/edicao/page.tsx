@@ -30,7 +30,6 @@ export default function Edicao() {
       setProdsFilter(filtered);
   }
 
-
   const [activeProduct, setActiveProduct] = useState(products[0]);
   function edit(prod: Product) {
     setActiveProduct(prod);

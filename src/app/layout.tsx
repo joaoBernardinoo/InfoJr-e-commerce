@@ -3,8 +3,6 @@ import { Container } from '@/components/bootstrap';
 import Header from './header/page';
 import Footer from './footer/page';
 
-import ProductContext from '@/contexts/products';
-import { useContext } from 'react';
 
 import { ProductProvider } from '@/contexts/products';
 
