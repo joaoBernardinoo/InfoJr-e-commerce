@@ -83,6 +83,21 @@
     align-items: center;
     gap: 5px;
 }
+
+.filtro {
+    width: 380px;
+    height: 200px;
+    display: flex;
+    background: #1B1B1B;    
+    box-shadow: 8px 8px 0px 0px #BDBDBD;
+    color: #F9F9F9;    
+}
+
+.list_item {
+    font-size: 16px;
+    font-weight: 400;
+}
+
 .tags
 {
     display: flex;
@@ -137,4 +152,10 @@
     color: var(--c2, #f9f9f9);
     background: #1b1b1b;
     box-shadow: 8px 8px 0px 0px #bdbdbd;
+}
+
+.l_dir {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

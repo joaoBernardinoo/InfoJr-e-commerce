@@ -76,3 +76,11 @@
 .menu li a ion-icon{
   font-size: 1.5em;
 } 
+
+.filtro {
+  width: 400px;
+  height: 315px;
+  display: grid;
+  flex-direction: auto auto;
+  background: salmon;
+}

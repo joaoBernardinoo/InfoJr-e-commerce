@@ -26,6 +26,12 @@ export default function Produtos() {
     setProdsFilter(filtered);
   }
 
+  const [isActive, setIsActive] = useState<boolean>(false);
+
+  const handleClick = (): void => {
+    setIsActive(state => !state);
+  };
+
   return (
     <main>
       <div className={styles.box1}>
@@ -59,13 +65,70 @@ export default function Produtos() {
               <h3>X itens encontrados</h3>
             </div>
             <div className={styles.l_dir}>
-              <button className={styles.filtro_b}>
-                <div>Filtros</div>
-                <div>
-                  <Image src={filter} alt="fil"></Image>
-                </div>
-              </button>
-              <div className={styles.filtro}></div>
+              { isActive ? (
+                <>
+                  <button className={styles.filtro_b} onClick={handleClick}>
+                    <div>Filtros</div>
+                    <div>
+                      <Image src={filter} alt="fil"></Image>
+                    </div>
+                  </button>
+                  <div className={styles.filtro}>
+                    <div className={styles.listaCategorias}>
+                      <ul style={{listStyle:'none'}}>
+                        <h4>Categorias</h4>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Camisetas
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Acessórios
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Calças
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Casacos
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Feminino
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Masculino
+                        </li>
+                      </ul>
+                    </div>
+                    <div className={styles.listaColecoes}>
+                      <ul style={{listStyle:'none'}}>
+                        <h4>Coleções</h4>
+                        <li>
+                          <input type="checkbox" />Keith Haring & Blvck
+                        </li>
+                        <li>
+                          <input type="checkbox" />Fortnite & Blvck
+                        </li>
+                        <li>
+                          <input type="checkbox" />Mohair
+                        </li>
+                        <li>
+                          <input type="checkbox" />Camisetas
+                        </li>
+                        <li>
+                          <input type="checkbox" />Whte
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <button className={styles.filtro_b} onClick={handleClick}>
+                    <div>Filtros</div>
+                    <div>
+                      <Image src={filter} alt="fil"></Image>
+                    </div>
+                  </button>
+                </>
+              )}
               <div className={styles.tags}>
                 <h3>tag 1</h3>
                 <h3>tag 2</h3>
