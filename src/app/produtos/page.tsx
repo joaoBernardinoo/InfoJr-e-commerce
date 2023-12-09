@@ -7,23 +7,25 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductContext from '@/contexts/products';
+
 import { filterProducts, otherProducts } from '@/utils/functions';
 import { searchProducts } from '@/utils/functions';
 import { FaSearch } from "react-icons/fa";
 
+
 export default function Produtos() {
   const { products } = useContext(ProductContext);
-
-  const [prodsFilter, setProdsFilter] = useState(products);
-  const [word, setWord] = useState('');
+  const [prodsFilter, setProdsFilter] = useState(products)
+  const [word, setWord] = useState("")
+  const [tags, setTags] = useState<string[]>([])
 
   useEffect(() => {
     handleSearch();
-  }, [word]); // Observa mudanças no estado 'word'
+  }, [word,tags]); // Observa mudanças no estado 'word'
 
   function handleSearch() {
-    const filtered = word ? searchProducts(products, word) : products;
-    setProdsFilter(filtered);
+      const filtered = word ? searchProducts(filterProducts(products,tags), word) : products;
+      setProdsFilter(filtered);
   }
 
   const [isActive, setIsActive] = useState<boolean>(false);

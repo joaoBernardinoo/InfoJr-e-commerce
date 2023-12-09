@@ -6,16 +6,31 @@ import mais_p from '../imagens/filtro/add (1).png';
 import styles from './page.module.css';
 import Image from 'next/image';
 import EditProductPopup from '@/components/productModal';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Product } from '@/types/products';
 import ProductContext from '@/contexts/products';
 import { Placeholder } from 'react-bootstrap';
+import { searchProducts, filterProducts } from '@/utils/functions';
 
 export default function Edicao() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   // use context do react para passar os produtos para o carrinho
   const { products, setProducts } = useContext(ProductContext);
   const [visibleProducts, setVisibleProducts] = useState(products);
+
+  const [prodsFilter, setProdsFilter] = useState(products)
+  const [word, setWord] = useState("")
+  const [tags, setTags] = useState<string[]>([])
+
+  useEffect(() => {
+    handleSearch();
+  }, [word,tags]); // Observa mudanças no estado 'word'
+
+  function handleSearch() {
+      const filtered = word ? searchProducts(filterProducts(products,tags), word) : products;
+      setProdsFilter(filtered);
+  }
+
 
   const [activeProduct, setActiveProduct] = useState(products[0]);
   function edit(prod: Product) {
@@ -57,7 +72,14 @@ export default function Edicao() {
                     <Image src={mais_p} alt="mais"></Image>
                   </div>
                 </div>
-                <div className={styles.pesquisar}>
+
+                <input onChange={(e) => setWord((e.target.value))}
+                className={styles.pesquisar}
+                value={word}
+                placeholder="Pesquisar"
+                ></input>
+
+                {/* <div className={styles.pesquisar}>
                   <Placeholder>
                     <div className={styles.pesq}>
                       <div>Pesquisar</div>
@@ -77,7 +99,7 @@ export default function Edicao() {
                       </div>
                     </div>
                   </Placeholder>
-                </div>
+                </div> */}
               </div>
               <div className={styles.baixos}>X itens encontrados!</div>
             </div>
@@ -106,7 +128,7 @@ export default function Edicao() {
             />
           ) : null}
           <div className={styles.produtos}>
-            {products.map((prod) => (
+            {prodsFilter.map((prod) => (
               <div key={prod.id} className={styles.outros_produtos}>
                 <Image
                   src={prod.image[0]}
