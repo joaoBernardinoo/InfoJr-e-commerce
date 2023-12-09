@@ -12,6 +12,7 @@ import Image from 'next/image';
 import ProductContext from '@/contexts/products';
 import { useContext } from 'react';
 import { ProductImage } from '@/enums/product_images';
+import { Product } from '@/types/products';
 
 
 
@@ -107,6 +108,10 @@ export default function Carrinho() {
     setCart([]);
   }
 
+  function handleProduct(product: Product) {
+    setProduct(product);
+  }
+
   return (
     <main>
       {cart.length == 0 ? (
@@ -131,7 +136,7 @@ export default function Carrinho() {
           <div className={style.areaPagina}>
             <div className={style.infoProdutos}>
               {cart.map((prod, key) => (
-                <div key={key} className={style.card_produtos}>
+                <div key={key} className={style.cardProdutos}>
                   <div className={style.atribsProduto}>
                     <div className={style.imgBox}>
                       <Image alt={''} src={prod.image[0]} width={150} height={150} />
@@ -202,6 +207,76 @@ export default function Carrinho() {
           </div>
         </div>
       )}
+      <div className={style.vistosRecentemente}>
+        <h1 className={style.titulo}>Vistos Recentemente</h1>
+        <div className={style.recentesCards}>
+          {cart.map((prod, key) => (
+            <Link
+              onClick={() => {
+                handleProduct(prod);
+              }}
+              style={{ textDecoration: 'none', color: 'black' }}
+              key={key}
+              href={`/produtos/`}
+            >
+              <div className={style.card_produtos}>
+                <div className={style.card_img}>
+                  <Image
+                    src={prod.image[0]}
+                    className={style.card_img}
+                    alt="prod"
+                    width={165}
+                    height={165}
+                  ></Image>
+                </div>
+                <div className={style.informacoes}>
+                  <h2>{prod.name}</h2>
+                  <div className={style.precos}>
+                    <div className={style.current_price}>R$ {prod.current_price}</div>
+                    <div className={style.old_price}>R$ {prod.old_price}</div>
+                  </div>
+                  <p className={style.disponivel}>{prod.available_quantity} itens em estoque</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className={style.outrosProdutos}>
+        <h1 className={style.titulo}>Outros Produtos</h1>
+        <div className={style.outrosProdsCards}>
+          {cart.map((prod, key) => (
+              <Link
+                onClick={() => {
+                  handleProduct(prod);
+                }}
+                style={{ textDecoration: 'none', color: 'black' }}
+                key={key}
+                href={`/produtos/`}
+              >
+                <div className={style.card_produtos}>
+                  <div className={style.card_img}>
+                    <Image
+                      src={prod.image[0]}
+                      className={style.card_img}
+                      alt="prod"
+                      width={165}
+                      height={165}
+                    ></Image>
+                  </div>
+                  <div className={style.informacoes}>
+                    <h2>{prod.name}</h2>
+                    <div className={style.precos}>
+                      <div className={style.current_price}>R$ {prod.current_price}</div>
+                      <div className={style.old_price}>R$ {prod.old_price}</div>
+                    </div>
+                    <p className={style.disponivel}>{prod.available_quantity} itens em estoque</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+        </div>
+      </div>
     </main>
   );
 }
