@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
 import { Container } from '@/components/bootstrap'
 import Header from './header/page'
 import Footer from './footer/page'
