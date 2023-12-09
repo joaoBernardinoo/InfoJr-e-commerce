@@ -49,6 +49,7 @@ export default function Edicao() {
     setProducts(newProducts);
   }
 
+
   return (
     <main>
       <div className={styles.box1}>
@@ -147,12 +148,7 @@ export default function Edicao() {
                 </div>
                 <div className={styles.edit_remov}>
                   <div>
-                    <button
-                      className={styles.edit}
-                      onClick={() => {
-                        edit(prod);
-                      }}
-                    >
+                    <button className={styles.edit} onClick={() => {edit(prod);}}>
                       Editar
                     </button>
                   </div>
