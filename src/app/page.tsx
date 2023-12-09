@@ -1,5 +1,7 @@
 'use client';
 import mainbanner from './imagens/mainBanner.png';
+import { otherProducts } from '@/utils/functions';
+
 
 import card_esq_1 from './imagens/cards_coleção/promocoes.png';
 import card_esq_2 from './imagens/cards_coleção/perfume.png';
@@ -7,6 +9,7 @@ import card_dir from './imagens/cards_coleção/whte.png';
 
 import produtos from './imagens/cards_produtos/card1.png';
 import ProductContext from '@/contexts/products';
+import { Product } from '@/types/products';
 import Image from 'next/image';
 import styles from './page.module.css';
 import Link from 'next/link';
@@ -159,8 +162,12 @@ export default function Home() {
             <p>Produtos</p>
             <div className={styles.produtos}>
               {/*Joga todos os produtos na tela*/}
-              {products.map((prod, key) => (
+              {otherProducts(products).map((prod: Product, key) => 
+              {
+                {console.log(typeof(key))}
+                return (
                 <div key={key} className={styles.card_produtos}>
+                  
                   <div className={styles.card_img}>
                     <Image
                       src={prod.image[0]}
@@ -183,7 +190,7 @@ export default function Home() {
                     )}
                   </div>
                 </div>
-              ))}
+              )})}
             </div>
             <div className={styles.subtitulo}>
               <p>
