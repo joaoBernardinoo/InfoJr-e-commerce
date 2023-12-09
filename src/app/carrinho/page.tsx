@@ -14,10 +14,12 @@ import ProductContext from '@/contexts/products';
 import { ProductImage } from '@/enums/product_images';
 import { useContext } from 'react';
 
+
+
 const produto = [
   {
     id: 1,
-    name: 'Blvck Mohair Branded Sweater',
+    name: 'Blvck Mohair Branded Sweater HOMEPAGE',
     current_price: 654.0,
     old_price: 746.0,
     available_quantity: 7,
@@ -49,7 +51,7 @@ const produto = [
     product_description:
       'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
     tags: ['Sweater', 'Casacos', 'Roupa'],
-    image: [ProductImage.Keith1, produtos, produtos],
+    image: [ProductImage.Keith1],
   },
   {
     id: 4,
@@ -73,7 +75,7 @@ const produto = [
     product_description:
       'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
     tags: ['Sweater', 'Casacos', 'Roupa'],
-    image: [ProductImage.Blazer1, produtos, produtos],
+    image: [ProductImage.Blazer1],
   },
   {
     id: 6,
@@ -85,24 +87,31 @@ const produto = [
     product_description:
       'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
     tags: ['Sweater', 'Casacos', 'Roupa'],
-    image: [ProductImage.Bandana1, produtos, produtos],
+    image: [ProductImage.Bandana1],
   },
 ];
 
 export default function Carrinho() {
-  const { products } = useContext(ProductContext);
-
-  function updateProducts() {
-    if (products.length > 0) return;
-    for (let i = 0; i < produto.length; i++) {
-      products.push(produto[i]);
-    }
+  const { products, cart, setCart, recent } = useContext(ProductContext);
+  // deve tirar dps
+  if (cart.length == 0) setCart(produto);
+  
+  function deleteCart(id: number) {
+    const newCart = cart.filter((prod) => prod.id !== id);
+    setCart(newCart);
   }
-  updateProducts();
+
+  const totalValue = cart.reduce((accumulator, product) => {
+    return accumulator + product.current_price;
+  }, 0);
+
+  function clearCart(){
+    setCart([]);
+  }
 
   return (
     <main>
-      {produto.length == 0 ? (
+      {cart.length == 0 ? (
         <div className={style.principal}>
           <h1 className={style.titulo}>Seu Carrinho</h1>
           <MdOutlineShoppingCart
@@ -129,7 +138,7 @@ export default function Carrinho() {
           </div>
           <div className={style.areaPagina}>
             <div className={style.infoProdutos}>
-              {products.map((prod, key) => (
+              {cart.map((prod, key) => (
                 <div key={key} className={style.card_produtos}>
                   <div className={style.atribsProduto}>
                     <div className={style.imgBox}>
@@ -172,7 +181,10 @@ export default function Carrinho() {
                       </button>
                     </>
                     <>
-                      <button className={style.botao}>
+                      <button
+                      onClick={() => deleteCart(prod.id)}
+                      className={style.botao}
+                      >
                         <FiTrash />
                       </button>
                     </>
@@ -184,7 +196,7 @@ export default function Carrinho() {
               <div className={style.totalEFrete}>
                 <div className={style.valorCompra}>
                   <div className={style.subtotal}>Subtotal</div>
-                  <div className={style.valorSubtotal}>R$ {products[0].current_price},00</div>
+                  <div className={style.valorSubtotal}>R$ {totalValue},00</div>
                 </div>            
                 <div className={style.botaoComprar}>
                   <button className={style.comprarAgora}>Comprar Agora</button>
@@ -202,7 +214,7 @@ export default function Carrinho() {
               </div>
               <div className={style.botoesCarrinho}>
                 <button className={style.botaoContinuar}>Continuar Comprando</button>
-                <button className={style.botaoLimpar}>Limpar Carrinho</button>
+                <button onClick={() => clearCart()} className={style.botaoLimpar}>Limpar Carrinho</button>
               </div>
 
             </div>

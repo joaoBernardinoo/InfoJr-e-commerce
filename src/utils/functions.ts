@@ -31,7 +31,8 @@ export function addCart(prodsCart: Product[], prodAdd: Product) {
 }
 
 export function removeCart(prodsCart: Product[], prodId: number) {
-  prodsCart = prodsCart.filter((prodCart: Product) => prodCart.id != prodId);
+  var removedCart = prodsCart.filter((prodCart: Product) => prodCart.id != prodId);
+  return removedCart
 }
 
 export function clearCart(prodsCart: Product[]) {
