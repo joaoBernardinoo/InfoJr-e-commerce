@@ -63,13 +63,12 @@ export default function Header() {
                         <Link href="/sobre" style={{ textDecoration: 'none', color: 'black' }}><h3>Sobre</h3></Link>
                     </div>
                     <div className={styles.pessoal}>
-                        <h3><Image src={carrinho} alt='car'></Image></h3>
-                        <h3><Image src={favoritos} alt='fav'></Image></h3>
-                        <h3><Image src={perfil} alt='per'></Image></h3>
+                      <Link href="/carrinho"><h3><Image src={carrinho} alt='car'></Image></h3></Link>
+                      <Link href="/favoritos"><h3><Image src={favoritos} alt='fav'></Image></h3></Link>
+                      <Link href="/perfil"><h3><Image src={perfil} alt='per'></Image></h3></Link>
                     </div>
                 </header>
             )}
-        </> 
-        
+        </>
     )
 }

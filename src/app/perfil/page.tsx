@@ -1,5 +1,5 @@
 
-export default function Carrinho() {
+export default function Perfil() {
     return (
       <main>
         
