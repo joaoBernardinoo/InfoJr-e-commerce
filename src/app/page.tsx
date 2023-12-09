@@ -109,9 +109,7 @@ export default function Home() {
             </div>
             <div className={styles.subtitulo}>
               <p>
-                <button className={styles.cbut}>
-                  <Link href="/produtos">Ver Mais</Link>
-                </button>
+                <button className={styles.cbut}><Link href='/produtos' style={{ textDecoration: 'none', color: 'white' }}>Ver Mais</Link></button>
               </p>
             </div>
           </div>
