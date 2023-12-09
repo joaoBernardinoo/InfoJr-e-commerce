@@ -46,11 +46,13 @@ const { products, product, setProduct, collection, category, recent, setRecent }
   }
 
   function handleChange(e: any) {
+
     if (e.target.checked) {
       setTags([...tags, e.target.value]);
     } else {
       setTags(tags.filter((tag) => tag !== e.target.value));
     }
+    handleSearch();
   }
 
   return (
@@ -102,7 +104,7 @@ const { products, product, setProduct, collection, category, recent, setRecent }
                         <h4>Categorias</h4>
                         {category.map((cat, key) => (
                           <li key={key}>
-                            <input onChange={handleChange} checked={category.includes(cat)} value={cat} type="checkbox" />
+                            <input onChange={handleChange} checked={tags.includes(cat)} value={cat} type="checkbox" />
                             {cat}
                           </li>
                         ))}
@@ -113,7 +115,7 @@ const { products, product, setProduct, collection, category, recent, setRecent }
                         <h4>Coleções</h4>
                         {collection.map((col, key) => (
                           <li key={key}>
-                            <input onChange={handleChange} checked={collection.includes(col)} value={col} type="checkbox" />
+                            <input onChange={handleChange} checked={tags.includes(col)} value={col} type="checkbox" />
                             {col}
                           </li>
                         ))}

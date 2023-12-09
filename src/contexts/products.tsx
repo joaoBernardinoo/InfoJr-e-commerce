@@ -55,7 +55,7 @@ const produto = [
     size: ['P', 'M', 'G', 'GG'],
     product_description:
       'Apresentando o suéter da marca Blvck Mohair, uma obra-prima sofisticada e aconchegante confeccionada com o mais requintado tecido mohair para um toque e toque superiores. Apresentando uma placa metálica com o icônico logotipo da Blvck Paris para uma estética opulenta, este suéter exala luxo. Para um toque suave e luxuoso, não procure além deste item indispensável atemporal.',
-    tags: ['Sweater', 'Casacos', 'Roupa'],
+    tags: ['Camiseta', 'Casacos', 'Roupa'],
     image: [ProductImage.Evil1, ProductImage.Evil2],
   },
   {
