@@ -89,7 +89,7 @@ export default function Edicao() {
 
   function remove(id: number) {
     setProds(prods.filter((prod) => prod.id !== id));
-  }~~
+  }
   function save(editedProduct: any) {
     setProds(prods.map((prod) => (prod.id === editedProduct.id ? editedProduct : prod)));
   }
