@@ -7,8 +7,7 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductContext from '@/contexts/products';
-import { filterProducts, otherProducts } from '@/utils/functions';
-import { searchProducts } from '@/utils/functions';
+import { filterProducts, otherProducts, searchProducts } from '@/utils/functions';
 
 export default function Produtos() {
 
@@ -46,8 +45,6 @@ export default function Produtos() {
                 value={word}
                 placeholder="Pesquisar"
               ></input>
-              {/*Tentar atualizar o filtro com o onChange no input*/}
-              <button onClick={() => handleSearch()}>Pesquisar</button>
               <h3>X itens encontrados</h3>
             </div>
             <div className={styles.l_dir}>
