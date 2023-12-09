@@ -94,9 +94,9 @@ export default function Produtos() {
                     <div className={styles.listaCategorias}>
                       <ul style={{ listStyle: 'none' }}>
                         <h4>Categorias</h4>
-                        {category.map((cat,key) => (
-                          <li>
-                            <input onChange={handleChange} checked={tags.includes(cat)} key={key} value={cat} type="checkbox" />
+                        {category.map((cat, key) => (
+                          <li key={key}>
+                            <input onChange={handleChange} value={cat} type="checkbox" />
                             {cat}
                           </li>
                         ))}
@@ -105,9 +105,9 @@ export default function Produtos() {
                     <div className={styles.listaColecoes}>
                       <ul style={{ listStyle: 'none' }}>
                         <h4>Coleções</h4>
-                        {collection.map((col,key) => (
-                          <li>
-                            <input onChange={handleChange} value={col} checked={tags.includes(col)} key={key} type="checkbox" />
+                        {collection.map((col, key) => (
+                          <li key={key}>
+                            <input onChange={handleChange} value={col} type="checkbox" />
                             {col}
                           </li>
                         ))}
@@ -126,8 +126,8 @@ export default function Produtos() {
                 </>
               )}
               <div className={styles.tags}>
-                {tags.map((tag,key) => (
-                  <div key={key}  className={styles.tag}>{tag}</div>
+                {tags.map((tag, key) => (
+                  <div key={key} className={styles.tag}>{tag}</div>
                 ))}
               </div>
             </div>
