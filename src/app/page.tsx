@@ -73,7 +73,7 @@ export default function Home() {
         </div>
         <div className="box3">
           <div className={styles.subtitulo}>
-            <p>Produtos</p>
+            <h5>Produtos</h5>
             <div className={styles.produtos}>
               {/*Joga todos os produtos na tela*/}
               {otherProducts(products).map((prod: Product, key) => 
@@ -105,14 +105,14 @@ export default function Home() {
                 </div>
               )})}
             </div>
+          </div>
             <div className={styles.subtitulo}>
               <p>
                 <button className={styles.cbut}>
-                  <Link href="/produtos">Ver Mais</Link>
+                  <Link href="/produtos" style={{ textDecoration: 'none', color: 'white' }}>Ver Mais</Link>
                 </button>
               </p>
             </div>
-          </div>
         </div>
       </div>
     </main>
