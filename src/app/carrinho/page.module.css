@@ -40,7 +40,7 @@
 }
 
 .card_produtos {
-  background: salmon;
+  /* background: salmon; */
   border: solid 1px;
   width: 645px;
   height: 170px;
@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 170px;
+  width: 180px;
   height: 100%;
 }
 
@@ -91,12 +91,6 @@
   margin-left: 2px;
 }
 
-.infoCompra {
-  border: solid 1px;
-  width: 360px;
-  height: 456px;
-}
-
 .qtdRestante {
     font-size: 12px;
     font-weight: 500;
@@ -109,11 +103,10 @@
 }
 
 .botoes {
-    width: 10%;
+    width: 20%;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    background: green;
+    justify-content: space-evenly;
+    box-sizing: border-box;
 }
 
 .botao {
@@ -123,4 +116,76 @@
     cursor: pointer;
     width: 20px;
     height: 20px;
+    margin-right: 15px;
 }
+
+.infoCompra {
+    border: solid 1px;
+    width: 360px;
+    height: 456px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+  }
+
+  .totalEFrete {
+    width: 100%;
+    height: 330px;
+    border: solid 1px;
+    box-sizing: border-box;
+    background: salmon;
+  }
+
+  .subtotal {
+    font-size: 10px;
+    font-weight: 400;
+    padding-bottom: 15px;
+  }
+
+  .valorSubtotal {
+    font-size: 24px;
+    font-weight: 600;    
+    padding-bottom: 15px;
+  }
+
+  .botaoComprar {
+    padding-bottom: 35px;
+  }
+
+  .comprarAgora {
+    background: black;
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+    border-radius: 0px;
+    width: 100%;
+    height: 60px;
+  }
+
+  .botoesCarrinho {
+    border: solid 1px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .freteInput {
+    height: 36px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: green;
+  }
+
+  .freteTexto {
+    height: 36px;
+    width: 70%;
+    box-sizing: border-box;
+  }
+
+  .freteBtn {
+    height: 36px;
+    width: 36px;
+    box-sizing: border-box;
+  }
