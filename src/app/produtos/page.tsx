@@ -18,6 +18,7 @@ export default function Produtos() {
   const [prodsFilter, setProdsFilter] = useState(products);
   const [word, setWord] = useState('');
   const [tags, setTags] = useState<string[]>([]);
+  const [checked, setChecked] = useState<boolean[]>([]);
 
   useEffect(() => {
     handleSearch();
