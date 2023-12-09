@@ -13,7 +13,7 @@ import { searchProducts } from '@/utils/functions';
 import { FaSearch } from 'react-icons/fa';
 
 export default function Produtos() {
-  const { products, product, setProduct, collection, category, recent, setRecent } = useContext(ProductContext);
+const { products, product, setProduct, collection, category, recent, setRecent } = useContext(ProductContext);
 
   const [prodsFilter, setProdsFilter] = useState(products);
   const [word, setWord] = useState('');
@@ -55,32 +55,32 @@ export default function Produtos() {
 
   return (
     <main>
-      {product.name}
+{product.name}
       <div className={styles.box1}>
         <div className={styles.titulo}>
           <h1>Produtos</h1>
           <div className={styles.prod_barra}>
-            <svg
+          <svg
               xmlns="http://www.w3.org/2000/svg"
               width="257"
               height="14"
               viewBox="0 0 257 14"
               fill="none"
             >
-              <path d="M0 0H257V14H0V0Z" fill="#D1D1D1" />
-            </svg>
+            <path d="M0 0H257V14H0V0Z" fill="#D1D1D1" />
+          </svg>
           </div>
         </div>
         <div className={styles.box2}>
           <div className={styles.box3}>
             <div className={styles.l_esq}>
               <div className={styles.barraPesquisa}>
-                <input
-                  onChange={(e) => setWord(e.target.value)}
+              <input
+                onChange={(e) => setWord(e.target.value)}
                   className={styles.campoPesquisa}
                   value={word}
-                  placeholder="Pesquisar"
-                ></input>
+                placeholder="Pesquisar"
+              ></input>
                 <button className={styles.botaoBusca} onClick={() => handleSearch()}>
                   <FaSearch />
                 </button>
@@ -88,16 +88,16 @@ export default function Produtos() {
               <h3>X itens encontrados</h3>
             </div>
             <div className={styles.l_dir}>
-              {isActive ? (
+                {isActive ? (
                 <>
                   <button className={styles.filtro_b} onClick={handleClick}>
-                    <div>Filtros</div>
-                    <div>
+                  <div>Filtros</div> 
+                  <div>
                       <Image src={filter} alt="fil"></Image>
                     </div>
-                  </button>
-                  <div className={styles.filtro}>
-                    <div className={styles.listaCategorias}>
+                </button>
+              <div className={styles.filtro}>
+                  <div className={styles.listaCategorias}>
                       <ul style={{ listStyle: 'none' }}>
                         <h4>Categorias</h4>
                         {category.map((cat, key) => (
@@ -127,8 +127,8 @@ export default function Produtos() {
                     <div>Filtros</div>
                     <div>
                       <Image src={filter} alt="fil"></Image>
-                    </div>
-                  </button>
+              </div>
+</button>
                 </>
               )}
               <div className={styles.tags}>
@@ -139,8 +139,8 @@ export default function Produtos() {
             </div>
           </div>
           <div className={styles.produtos}>
-            {prodsFilter.map((prod, key) => (
-              <Link
+          {prodsFilter.map((prod, key) => (
+            <Link
                 onClick={() => {
                   handleProduct(prod);
                 }}
@@ -149,27 +149,27 @@ export default function Produtos() {
                 href={`/produtos/`}
               >
                 <div className={styles.card_produtos}>
-                  <div className={styles.card_img}>
-                    <Image
+              <div className={styles.card_img}>
+                <Image
                       src={prod.image[0]}
                       className={styles.card_img}
                       alt="prod"
                       width={165}
                       height={165}
                     ></Image>
-                  </div>
-                  <div className={styles.informacoes}>
-                    <h2>{prod.name}</h2>
-                    <div className={styles.precos}>
-                      <div className={styles.current_price}>R$ {prod.current_price}</div>
-                      <div className={styles.old_price}>R$ {prod.old_price}</div>
-                    </div>
-                    <p className={styles.disponivel}>{prod.available_quantity} itens em estoque</p>
-                  </div>
+              </div>
+              <div className={styles.informacoes}>
+                <h2>{prod.name}</h2>
+                <div className={styles.precos}>
+                  <div className={styles.current_price}>R$ {prod.current_price}</div>
+                  <div className={styles.old_price}>R$ {prod.old_price}</div>
                 </div>
-              </Link>
-            ))}
-          </div>
+                <p className={styles.disponivel}>{prod.available_quantity} itens em estoque</p>
+              </div>                  
+            </div>
+</Link>
+          ))}
+        </div>
         </div>
         <div className={styles.editar}>
           <Link href="/edicao" style={{ textDecoration: 'none', color: 'white' }}>
@@ -178,5 +178,5 @@ export default function Produtos() {
         </div>
       </div>
     </main>
-  );
+  );            
 }

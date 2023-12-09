@@ -1,0 +1,82 @@
+.box1
+{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+    left: 500px;
+}
+.box2
+{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.lad_esq
+{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+.meio
+{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+.maisesquerdo
+{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.lad_dir
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.precos
+{
+    display: flex;
+    gap: 20px;
+}
+.precin
+{
+    display: flex;
+    flex-direction: column;
+}
+.pre
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+
+
+
+
+.namess
+{
+    padding: 10px;
+    width: 390px;
+}
+.rs
+{
+    padding: 5px;
+    border: 1px solid var(--c10, #1B1B1B);
+    background: var(--c3, #D1D1D1);
+}
+.num
+{
+    width: 100px;
+    padding-left: 10px;
+}
+.tagdig
+{
+    border: 1px solid var(--c10, black);
+    width: 100px;
+}

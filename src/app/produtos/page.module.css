@@ -137,7 +137,8 @@
 }
 .produtos 
 {
-  width: 1120px;
+  width: 1000px;
+  gap: 20px;
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: space-between;
