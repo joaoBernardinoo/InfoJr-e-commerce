@@ -45,7 +45,7 @@ export default function Header() {
         <>
             { larguraMaxima ? (
                 <header className={styles.header}>
-                    <Link href="/" style={{ textDecoration: 'none', color: 'black' }}><h3 className={styles.logo}>BLCVK</h3></Link>
+                    <Link href="/" style={{ textDecoration: 'none', color: 'black' }}><h3 className={styles.logo}>BLVCK</h3></Link>
                     <div className={styles.pessoal}>
                       <Link href="/carrinho"><h3><Image src={carrinho} alt='car'></Image></h3></Link>
                       <Link href="/favoritos"><h3><Image src={favoritos} alt='fav'></Image></h3></Link>
