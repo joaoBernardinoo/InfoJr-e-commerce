@@ -10,7 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import ProductContext from '@/contexts/products';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ProductImage } from '@/enums/product_images';
 import { Product } from '@/types/products';
 import { otherProducts } from '@/utils/functions';
@@ -91,6 +91,12 @@ const produto = [
 ];
 // Ao colocar qualquer CEP, retorna o mesmo valor de frete ( ex: R$20,00)
 export default function Carrinho() {
+  const [visibilidadeFrete, setVisibilidadeFrete] = useState(false);
+
+  const visFrete = () => {
+    setVisibilidadeFrete(state => !state)
+  }
+
   const { products, cart, setCart, recent } = useContext(ProductContext);
   if (cart.length == 0) setCart(produto);
 
@@ -218,14 +224,17 @@ export default function Carrinho() {
                       type="text"
                       placeholder="Informe o CEP"
                     />
-                    <button className={style.freteBtn}>
+                    <button className={style.freteBtn} onClick={visFrete}>
                       <FaArrowRight />
                     </button>
                   </div>
-                  <p className={style.msgRodape}>
-                    Preço de frete para Salvador, Bahia: R${' '}
-                    {products[0].current_price}
-                  </p>
+                  { visibilidadeFrete ? (
+                    <p className={style.msgRodape}>
+                      Preço de frete para Salvador, Bahia: R$ 20,00
+                    </p>
+                  ) : (
+                    <></>
+                  ) }
                 </div>
               </div>
               <div className={style.botoesCarrinho}>
