@@ -9,7 +9,6 @@ import EditProductPopup from '@/components/productModal';
 import { useState, useContext, useEffect } from 'react';
 import { Product } from '@/types/products';
 import ProductContext from '@/contexts/products';
-import { Placeholder } from 'react-bootstrap';
 import { searchProducts, filterProducts } from '@/utils/functions';
 
 export default function Edicao() {
@@ -31,12 +30,12 @@ export default function Edicao() {
       setProdsFilter(filtered);
   }
 
-
   const [activeProduct, setActiveProduct] = useState(products[0]);
   function edit(prod: Product) {
     setActiveProduct(prod);
     setIsModalVisible(true);
   }
+  
   function remove(id: number) {
     const newProducts = products.filter((prod) => prod.id !== id);
     setProducts(newProducts);
@@ -113,8 +112,9 @@ export default function Edicao() {
                 </button>
               </div>
               <div className={styles.baixo}>
-                <div>tag 1</div>
-                <div>tag 2</div>
+                {tags.map((tag) => (
+                  <div className={styles.tag}>{tag}</div>
+                ))}
               </div>
             </div>
           </div>

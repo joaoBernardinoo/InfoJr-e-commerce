@@ -11,7 +11,6 @@ import { Product } from '@/types/products';
 import Image from 'next/image';
 import styles from './page.module.css';
 import Link from 'next/link';
-import Head from 'next/head';
 import { useContext } from 'react';
 
 function debugFunction() {
