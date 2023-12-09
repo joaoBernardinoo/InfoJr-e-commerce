@@ -102,7 +102,7 @@ export default function Edicao() {
               onClose={() => {
                 setIsModalVisible(false);
               }}
-              onSave={() => {}}
+              onSave={save}
             />
           ) : null}
           <div className={styles.produtos}>
