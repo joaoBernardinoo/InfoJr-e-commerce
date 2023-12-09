@@ -13,6 +13,7 @@ import ProductContext from '@/contexts/products';
 import { useContext } from 'react';
 import { ProductImage } from '@/enums/product_images';
 import { Product } from '@/types/products';
+import { otherProducts } from '@/utils/functions';
 
 
 
@@ -210,7 +211,7 @@ export default function Carrinho() {
       <div className={style.vistosRecentemente}>
         <h1 className={style.titulo}>Vistos Recentemente</h1>
         <div className={style.recentesCards}>
-          {cart.map((prod, key) => (
+          {recent.map((prod, key) => (
             <Link
               onClick={() => {
                 handleProduct(prod);
@@ -245,7 +246,7 @@ export default function Carrinho() {
       <div className={style.outrosProdutos}>
         <h1 className={style.titulo}>Outros Produtos</h1>
         <div className={style.outrosProdsCards}>
-          {cart.map((prod, key) => (
+          {otherProducts(products).map((prod, key) => (
               <Link
                 onClick={() => {
                   handleProduct(prod);
