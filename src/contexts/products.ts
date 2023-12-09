@@ -1,20 +1,19 @@
-import React from "react";
-import { Product
- } from "@/types/products";
+import React from 'react';
+import { Product } from '@/types/products';
 
 interface ContextData {
-    products: Product[];
-    recent: Product[];
-    cart: Product[];
-    updateProducts: (id: number) => void;
+  products: Product[];
+  recent: Product[];
+  cart: Product[];
+  updateProductsArray: (products: Product[], id: number) => void;
 }
 
 const ProductContext = React.createContext<ContextData>({
-    products: [],
-    recent: [],
-    cart: [],
-    updateProducts: (id: number) => null
-})
+  products: [],
+  recent: [],
+  cart: [],
+  updateProductsArray: (products: Product[], id: number) => null,
+});
 
 export const ProductProvider = ProductContext.Provider;
 

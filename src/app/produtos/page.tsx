@@ -49,7 +49,6 @@ export default function Produtos() {
             </div>
           </div>
           <div className={styles.produtos}>
-          {/*Joga todos os produtos na tela*/}
           {otherProducts(products).map((prod, key) => (
             <div key={key} className={styles.card_produtos}>
               <div className={styles.card_img}>
