@@ -2,6 +2,7 @@
 import React from 'react';
 import { Product } from '@/types/products';
 import { ProductImage } from '@/enums/product_images';
+import Blank from "@components/imagens/blank.png"
 
 interface ContextData {
   products: Product[];

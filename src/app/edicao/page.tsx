@@ -49,6 +49,24 @@ export default function Edicao() {
     setProducts(newProducts);
   }
 
+  function create() {
+    setActiveProduct({
+      id: 0,
+      name: '',
+      current_price: .0,
+      old_price: .0,
+      available_quantity: 0,
+      size: [],
+      product_description:
+        '',
+      tags: [],
+      image: [],
+    } as Product);
+    setIsModalVisible(true);
+  }
+  
+
+
 
   return (
     <main>
@@ -60,7 +78,7 @@ export default function Edicao() {
           <div className={styles.box3}>
             <div className={styles.lad_esq}>
               <div className={styles.cima}>
-                <div className={styles.CP}>
+                <div onClick={create} className={styles.CP}>
                   <div>Criar Produto</div>
                   <div className={styles.maiss}>
                     <Image src={mais_b} alt="mais"></Image>
@@ -120,7 +138,7 @@ export default function Edicao() {
             </div>
           </div>
           {isModalVisible ? (
-            <EditProductPopup
+            <EditProductPopup 
               product={activeProduct}
               onClose={() => {
                 setIsModalVisible(false);

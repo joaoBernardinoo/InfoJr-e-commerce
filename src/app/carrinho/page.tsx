@@ -91,7 +91,7 @@ const produto = [
 ];
 // Ao colocar qualquer CEP, retorna o mesmo valor de frete ( ex: R$20,00)
 export default function Carrinho() {
-  const { products, cart, setCart, recent } = useContext(ProductContext);
+  const { products, setProduct, cart, setCart, recent } = useContext(ProductContext);
   
   function deleteCart(id: number) {
     const newCart = cart.filter(prod => prod.id !== id);
