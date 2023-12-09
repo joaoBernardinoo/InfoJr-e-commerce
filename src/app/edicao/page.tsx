@@ -95,7 +95,7 @@ export default function Edicao() {
     setIsModalVisible(true);
   }
   function remove(id: number) {
-    setProds(products.filter((prod) => prod.id !== id));
+    products.filter((prod) => prod.id !== id);
   }
   function save(editedProduct: any) {
     setProds(products.map((prod) => (prod.id === editedProduct.id ? editedProduct : prod)));
@@ -136,3 +136,5 @@ export default function Edicao() {
     </main>
   );
 }
+
+

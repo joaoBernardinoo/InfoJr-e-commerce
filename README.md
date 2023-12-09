@@ -5,12 +5,13 @@
 ### Prioridade Máxima
   1. `otherProducts()` ( retorna um array dos 6 primeiros produtos do array de produtos )
   1. `similarProducts()` ( função que recebe um produto e retorna um array com produtos com a mesma tag/coleção ou tipo)
+  1. `filterProducts()` ( retorna um array de produtos que contém a tag/coleção ou categoria passado como parâmetro; obs: )
 ### Prioridade Média
 
   #### Vizualização de produtos
   
   1. `recentProducts()` ( retorna 4 produtos mais recentemente vistos pelo usuário; sugestão: usar pilha como estrutura de dados )
-  1. `filterProducts()` ( retorna um array de produtos que contém a tag/coleção ou categoria passado como parâmetro; obs: )
+  
   1. `searchProducts()` ( retorna um array de produtos que contém a string passada como parâmetro no nome ou na descrição; pode usar filterProducts() para buscar dentro de uma categoria específica )
   #### Carrinho
   1. `addCart()` ( adiciona um produto ao carrinho )
