@@ -53,10 +53,6 @@ export default function Produtos() {
     }
   }
 
-  function addRecent(prod: Product){
-      
-  }
-
   return (
     <main>
       {product.name}

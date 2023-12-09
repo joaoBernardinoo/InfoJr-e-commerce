@@ -23,7 +23,7 @@ export default function Edicao() {
 
   useEffect(() => {
     handleSearch();
-  }, [word,tags]); // Observa mudanças no estado 'word'
+  }, [word,tags,products]); // Observa mudanças no estado 'word'
 
   function handleSearch() {
       const filtered = word ? searchProducts(filterProducts(products,tags), word) : products;
