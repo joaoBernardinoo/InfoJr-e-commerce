@@ -93,13 +93,7 @@ const produto = [
 export default function Carrinho() {
   const { products } = useContext(ProductContext);
 
-  function updateProducts() {
-    if (products.length > 0) return;
-    for (let i = 0; i < produto.length; i++) {
-      products.push(produto[i]);
-    }
-  }
-  updateProducts();
+
 
   return (
     

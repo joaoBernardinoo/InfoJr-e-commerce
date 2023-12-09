@@ -16,13 +16,14 @@ export default function Produtos() {
 
   const [prodsFilter, setProdsFilter] = useState(products)
   const [word, setWord] = useState("")
+  const [tags, setTags] = useState<string[]>([])
 
   useEffect(() => {
     handleSearch();
-  }, [word]); // Observa mudanças no estado 'word'
+  }, [word,tags]); // Observa mudanças no estado 'word'
 
   function handleSearch() {
-      const filtered = word ? searchProducts(products, word) : products;
+      const filtered = word ? searchProducts(filterProducts(products,tags), word) : products;
       setProdsFilter(filtered);
   }
 

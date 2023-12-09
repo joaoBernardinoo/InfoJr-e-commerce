@@ -16,6 +16,7 @@ export default function Edicao() {
   // use context do react para passar os produtos para o carrinho
   const { products, setProducts } = useContext(ProductContext);
   const [visibleProducts, setVisibleProducts] = useState(products);
+  const [tags, setTags] = useState<string[]>([]);
 
   const [activeProduct, setActiveProduct] = useState(products[0]);
   function edit(prod: Product) {
@@ -91,8 +92,9 @@ export default function Edicao() {
                 </button>
               </div>
               <div className={styles.baixo}>
-                <div>tag 1</div>
-                <div>tag 2</div>
+                {tags.map((tag) => (
+                  <div className={styles.tag}>{tag}</div>
+                ))}
               </div>
             </div>
           </div>
