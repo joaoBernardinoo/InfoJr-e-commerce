@@ -118,17 +118,8 @@ export default function Carrinho() {
         </div>
       ) : (
         <div className={style.principal}>
-          <h1 className={style.titulo}>Seu Carrinho</h1>
-          <div className={style.barraCarrinho}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="257"
-              height="14"
-              viewBox="0 0 257 14"
-              fill="none"
-            >
-              <path d="M0 0H257V14H0V0Z" fill="#D1D1D1" />
-            </svg>
+          <div className={style.titulo}>
+            <h1>Seu Carrinho</h1>
           </div>
           <div className={style.areaPagina}>
             <div className={style.infoProdutos}>

@@ -5,13 +5,9 @@
 }
 
 .titulo {
+  text-align: center;
   font-size: 59px;
-}
-
-.prod_barra {
-  display: flex;
-  position: relative;
-  bottom: 40px;
+  font-weight: 800;
 }
 
 .carVazio {
@@ -35,9 +31,9 @@
 }
 
 .areaPagina {
-    display: flex;
-    justify-content: space-between;
-    min-width: 1120px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 1120px;
 }
 
 .card_produtos {
@@ -92,133 +88,133 @@
 }
 
 .qtdRestante {
-    font-size: 12px;
-    font-weight: 500;
-    color: #6B6B6B;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b6b6b;
 }
 
 .qtdTamanho {
-    display: flex;
-    font-size: 10px;
+  display: flex;
+  font-size: 10px;
 }
 
 .botoes {
-    width: 20%;
-    display: flex;
-    justify-content: space-evenly;
-    box-sizing: border-box;
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
 }
 
 .botao {
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    margin-right: 15px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
 }
 
 .infoCompra {
-    width: 360px;
-    height: 456px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  width: 360px;
+  height: 456px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .totalEFrete {
-    width: 100%;
-    height: 330px;
-    box-sizing: border-box;
-    border: solid 1px;    
-    padding: 25px;
-    margin-bottom: 15px;
-  }
+.totalEFrete {
+  width: 100%;
+  height: 330px;
+  box-sizing: border-box;
+  border: solid 1px;
+  padding: 25px;
+  margin-bottom: 15px;
+}
 
-  .subtotal {
-    font-size: 10px;
-    font-weight: 400;
-    padding-bottom: 15px;
-  }
+.subtotal {
+  font-size: 10px;
+  font-weight: 400;
+  padding-bottom: 15px;
+}
 
-  .valorSubtotal {
-    font-size: 24px;
-    font-weight: 600;    
-    padding-bottom: 15px;
-  }
+.valorSubtotal {
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
 
-  .botaoComprar {
-    padding-bottom: 35px;
-  }
+.botaoComprar {
+  padding-bottom: 35px;
+}
 
-  .comprarAgora {
-    background: black;
-    color: white;
-    font-weight: 600;
-    font-size: 24px;
-    border-radius: 0px;
-    width: 100%;
-    height: 60px;
-  }  
+.comprarAgora {
+  background: black;
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
+  border-radius: 0px;
+  width: 100%;
+  height: 60px;
+}
 
-  .calcFrete {
-    font-size: 12px;
-    font-weight: 500;
-  }
+.calcFrete {
+  font-size: 12px;
+  font-weight: 500;
+}
 
-  .freteInput {
-    height: 36px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-  }
+.freteInput {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
 
-  .freteTexto {
-    height: 36px;
-    width: 80%;
-    box-sizing: border-box;
-    font-weight: 700;
-    padding-left: 10px;
-  }
+.freteTexto {
+  height: 36px;
+  width: 80%;
+  box-sizing: border-box;
+  font-weight: 700;
+  padding-left: 10px;
+}
 
-  .freteBtn {
-    height: 36px;
-    width: 36px;
-    box-sizing: border-box;
-  }
+.freteBtn {
+  height: 36px;
+  width: 36px;
+  box-sizing: border-box;
+}
 
-  .msgRodape {
-    font-size: 12px;
-    font-weight: 500;
-  }
+.msgRodape {
+  font-size: 12px;
+  font-weight: 500;
+}
 
-  .botoesCarrinho {
-    width: 100%;
-    height: 110px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.botoesCarrinho {
+  width: 100%;
+  height: 110px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .botaoContinuar {
-    width: 100%;
-    height: 60px;
-    font-size: 24px;
-    font-weight: 700;
-    background: white;
-    border: solid 1px;
-    cursor: pointer;
-  }
+.botaoContinuar {
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  font-weight: 700;
+  background: white;
+  border: solid 1px;
+  cursor: pointer;
+}
 
-  .botaoLimpar {
-    background: none;
-    border: none;
-    outline: none;
-    font-size: 12px;
-    font-weight: 500;
-    color: #6B6B6B;
-    cursor: pointer;
-  }
+.botaoLimpar {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b6b6b;
+  cursor: pointer;
+}

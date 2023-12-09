@@ -1,4 +1,5 @@
 'use client';
+'use client';
 import { useState, useContext, useEffect } from 'react';
 import filter from '../imagens/filtro/filter_list.png';
 import { Product } from '@/types/products';
@@ -6,7 +7,11 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductContext from '@/contexts/products';
-import { filterProducts, otherProducts, searchProducts } from '@/utils/functions';
+
+import { filterProducts, otherProducts } from '@/utils/functions';
+import { searchProducts } from '@/utils/functions';
+import { FaSearch } from "react-icons/fa";
+
 
 export default function Produtos() {
   const { products, product, setProduct } = useContext(ProductContext);
@@ -23,6 +28,12 @@ export default function Produtos() {
     const filtered = word ? searchProducts(filterProducts(products, tags), word) : products;
     setProdsFilter(filtered);
   }
+
+  const [isActive, setIsActive] = useState<boolean>(false);
+
+  const handleClick = (): void => {
+    setIsActive(state => !state);
+  };
 
   function handleClick(product: Product) {
     setProduct(product);
@@ -49,22 +60,83 @@ export default function Produtos() {
         <div className={styles.box2}>
           <div className={styles.box3}>
             <div className={styles.l_esq}>
-              <input
-                onChange={(e) => setWord(e.target.value)}
-                className={styles.pesquisar}
-                value={word}
-                placeholder="Pesquisar"
-              ></input>
+              <div className={styles.barraPesquisa}>
+                <input
+                  onChange={e => setWord(e.target.value)}
+                  className={styles.campoPesquisa}
+                  value={word}
+                  placeholder="Pesquisar"
+                ></input>
+                {/*Tentar atualizar o filtro com o onChange no input*/}
+                <button className={styles.botaoBusca} onClick={() => handleSearch()}><FaSearch /></button>
+              </div>
               <h3>X itens encontrados</h3>
             </div>
             <div className={styles.l_dir}>
-              <button className={styles.filtro_b}>
-                <div>Filtros</div>
-                <div>
-                  <Image src={filter} alt="fil"></Image>
-                </div>
-              </button>
-              <div className={styles.filtro}></div>
+              { isActive ? (
+                <>
+                  <button className={styles.filtro_b} onClick={handleClick}>
+                    <div>Filtros</div>
+                    <div>
+                      <Image src={filter} alt="fil"></Image>
+                    </div>
+                  </button>
+                  <div className={styles.filtro}>
+                    <div className={styles.listaCategorias}>
+                      <ul style={{listStyle:'none'}}>
+                        <h4>Categorias</h4>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Camisetas
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Acessórios
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Calças
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Casacos
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Feminino
+                        </li>
+                        <li className={styles.list_item}>
+                          <input type="checkbox" />Masculino
+                        </li>
+                      </ul>
+                    </div>
+                    <div className={styles.listaColecoes}>
+                      <ul style={{listStyle:'none'}}>
+                        <h4>Coleções</h4>
+                        <li>
+                          <input type="checkbox" />Keith Haring & Blvck
+                        </li>
+                        <li>
+                          <input type="checkbox" />Fortnite & Blvck
+                        </li>
+                        <li>
+                          <input type="checkbox" />Mohair
+                        </li>
+                        <li>
+                          <input type="checkbox" />Camisetas
+                        </li>
+                        <li>
+                          <input type="checkbox" />Whte
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <button className={styles.filtro_b} onClick={handleClick}>
+                    <div>Filtros</div>
+                    <div>
+                      <Image src={filter} alt="fil"></Image>
+                    </div>
+                  </button>
+                </>
+              )}
               <div className={styles.tags}>
                 <h3>tag 1</h3>
                 <h3>tag 2</h3>
@@ -82,20 +154,30 @@ export default function Produtos() {
                 <div className={styles.card_produtos}>
                   <div className={styles.card_img}>
                     <Image
-                      src={prod.image[0]}
-                      className={styles.card_img}
-                      alt="prod"
-                      width={165}
-                      height={165}
-                    ></Image>
+                     
+                    src={prod.image[0]}
+                     
+                    className={styles.card_img}
+                     
+                    alt="prod"
+                     
+                    width={165}
+                     
+                    height={165}
+                    
+                  ></Image>
                   </div>
                   <div className={styles.informacoes}>
                     <h2>{prod.name}</h2>
                     <div className={styles.precos}>
-                      <div className={styles.current_price}>R$ {prod.current_price}</div>
+                      <div className={styles.current_price}>
+                      R$ {prod.current_price}
+                    </div>
                       <div className={styles.old_price}>R$ {prod.old_price}</div>
                     </div>
-                    <p className={styles.disponivel}>{prod.available_quantity} itens em estoque</p>
+                    <p className={styles.disponivel}>
+                    {prod.available_quantity} itens em estoque
+                  </p>
                   </div>
                 </div>
               </Link>
@@ -103,7 +185,10 @@ export default function Produtos() {
           </div>
         </div>
         <div className={styles.editar}>
-          <Link href="/edicao" style={{ textDecoration: 'none', color: 'white' }}>
+          <Link
+            href="/edicao"
+            style={{ textDecoration: 'none', color: 'white' }}
+          >
             <div>Editar</div>
           </Link>
         </div>
