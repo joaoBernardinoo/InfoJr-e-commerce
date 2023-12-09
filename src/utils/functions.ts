@@ -1,6 +1,6 @@
 import { Product } from '@/types/products';
 
-export function otherProducts(prods: []){
+export function otherProducts(prods: Product[]){
     var otherProds = prods.slice(0, 6)
     return otherProds
 }
@@ -33,10 +33,4 @@ export function removeCart(prodsCart: Product[], prodId: number){
 export function clearCart(prodsCart: Product[]){
     prodsCart.length = 0
 }
-
-/*
-export function checkout(prodsCart: Product[]){
-    prodsCart.length = 0  
-}
-*/
 
