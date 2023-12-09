@@ -34,7 +34,7 @@ const EditProductPopup: React.FC<EditProductPopupProps> = ({ product, onClose, o
   return (
     <div className={styles.box1}>
       <div className={styles.titulo}>
-        <h1>Editar</h1>
+        <h1>{product ? "Editar" : "Criar"}</h1>
       </div>
       <div className={styles.box2}>
         <div className={styles.lad_esq}>
