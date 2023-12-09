@@ -22,7 +22,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default function Home() {
-  const { products } = useContext(ProductContext);
+  const { products, cart } = useContext(ProductContext);
 
   return (
     <main className={styles.main}>
