@@ -88,6 +88,8 @@
 }
 
 .filtro {
+    position: absolute;
+    margin-top: 43px;
     width: 380px;
     height: 200px;
     display: flex;
