@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import ProductContext from '@/contexts/products';
 import { ProductImage } from '@/enums/product_images';
 import produtos from './imagens/cards_produtos/card1.png';
-
+import { ProductProvider } from '@/contexts/products';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -99,11 +99,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Container>
-          <Header />
-          {children}
-          <Footer />
-        </Container>
+          <Container>
+            <Header />
+            {children}
+            <Footer />
+          </Container>
       </body>
     </html>
   );

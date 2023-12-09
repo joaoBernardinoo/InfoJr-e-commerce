@@ -2,7 +2,6 @@
 import mainbanner from './imagens/mainBanner.png';
 import { otherProducts } from '@/utils/functions';
 
-
 import card_esq_1 from './imagens/cards_coleção/promocoes.png';
 import card_esq_2 from './imagens/cards_coleção/perfume.png';
 import card_dir from './imagens/cards_coleção/whte.png';
@@ -12,7 +11,8 @@ import { Product } from '@/types/products';
 import Image from 'next/image';
 import styles from './page.module.css';
 import Link from 'next/link';
-import {useContext} from 'react';
+import Head from 'next/head';
+import { useContext } from 'react';
 
 function debugFunction() {
   console.log('debug');
@@ -109,7 +109,9 @@ export default function Home() {
             </div>
             <div className={styles.subtitulo}>
               <p>
-                <button className={styles.cbut}><Link href='/produtos' style={{ textDecoration: 'none', color: 'white' }}>Ver Mais</Link></button>
+                <button className={styles.cbut}>
+                  <Link href="/produtos">Ver Mais</Link>
+                </button>
               </p>
             </div>
           </div>
