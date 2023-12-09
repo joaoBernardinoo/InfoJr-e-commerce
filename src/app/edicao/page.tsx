@@ -23,7 +23,7 @@ export default function Edicao() {
 
   useEffect(() => {
     handleSearch();
-  }, [word,tags]); // Observa mudanças no estado 'word'
+  }, [word,tags,products]); // Observa mudanças no estado 'word'
 
   function handleSearch() {
       const filtered = word ? searchProducts(filterProducts(products,tags), word) : products;
@@ -112,8 +112,8 @@ export default function Edicao() {
                 </button>
               </div>
               <div className={styles.baixo}>
-                {tags.map((tag) => (
-                  <div className={styles.tag}>{tag}</div>
+                {tags.map((tag, key) => (
+                  <div key={key} className={styles.tag}>{tag}</div>
                 ))}
               </div>
             </div>

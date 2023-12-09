@@ -8,12 +8,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ProductContext from '@/contexts/products';
 
-import { filterProducts, otherProducts } from '@/utils/functions';
+import { filterProducts, otherProducts, recentProducts } from '@/utils/functions';
 import { searchProducts } from '@/utils/functions';
 import { FaSearch } from 'react-icons/fa';
 
 export default function Produtos() {
-  const { products, product, setProduct, collection, category } = useContext(ProductContext);
+  const { products, product, setProduct, collection, category, recent, setRecent } = useContext(ProductContext);
 
   const [prodsFilter, setProdsFilter] = useState(products);
   const [word, setWord] = useState('');
@@ -37,6 +37,12 @@ export default function Produtos() {
 
   function handleProduct(product: Product) {
     setProduct(product);
+    if(!recent.includes(product)){
+      var newRecent = recent
+      recentProducts(newRecent, product)
+      setRecent(newRecent)
+      console.log(recent)
+    }
   }
 
   function handleChange(e: any) {

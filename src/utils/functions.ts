@@ -7,9 +7,7 @@ export function otherProducts(prods: Product[]) {
 
 export function filterProducts(prods: Product[], tags: string[]) {
   var similarProds = prods.filter((product: Product) =>
-    tags.every((tag: string) => {
-      product.tags.includes(tag);
-    })
+    tags.every((tag: string) => product.tags.includes(tag))
   );
   return similarProds;
 }
@@ -20,8 +18,10 @@ export function searchProducts(prods: Product[], name: string) {
 }
 
 export function recentProducts(recentProducts: Product[], prod: Product) {
-  recentProducts.shift();
   recentProducts.push(prod);
+  if (recentProducts.length > 4){
+    recentProducts.shift();
+  }
 }
 
 // Carrinho
