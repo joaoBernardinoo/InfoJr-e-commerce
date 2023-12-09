@@ -10,10 +10,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import ProductContext from '@/contexts/products';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { ProductImage } from '@/enums/product_images';
 import { Product } from '@/types/products';
-import { otherProducts, addCart } from '@/utils/functions';
 
 const produto = [
   {
@@ -90,22 +89,20 @@ const produto = [
   },
 ];
 // Ao colocar qualquer CEP, retorna o mesmo valor de frete ( ex: R$20,00)
-export default function Carrinho() {
-  const { products, setProduct, cart, setCart, recent } = useContext(ProductContext);
-  const [cartItens, setCartItens] = useState(cart);
-  useEffect(() => {
-    setCartItens(cartItens);
-  }, [cartItens]);
+export default function PagProduto( itemProduto: Product ) {
+  const [visibilidadeFrete, setVisibilidadeFrete] = useState(false);
+
+  const visFrete = () => {
+    setVisibilidadeFrete(state => !state)
+  }
+
+  const { products, cart, setCart, recent } = useContext(ProductContext);
+  if (cart.length == 0) setCart(produto);
+
   function deleteCart(id: number) {
     const newCart = cart.filter(prod => prod.id !== id);
     setCart(newCart);
   }
-
-  
-
-  const totalValue = cart.reduce((accumulator, product) => {
-    return accumulator + product.current_price;
-  }, 0);
 
   function clearCart() {
     setCart([]);
@@ -120,145 +117,84 @@ export default function Carrinho() {
     clearCart();
   }
 
-  function adiCart(prod: Product) {
-    const newCart = cart;
-    addCart(newCart, prod)
-    setCart(newCart);
-  }
-
   const frete = 20
 
   return (
-    <main>
-      {cart.length == 0 ? (
-        <div className={style.principal}>
-          <h1 className={style.titulo}>Seu Carrinho</h1>
-          <MdOutlineShoppingCart
-            style={{ width: '60px', height: '60px', color: 'grey' }}
+    <div className={style.principal}>
+      <div className={style.produtoBox}>        
+        <div className={style.imgBox}>
+          <Image
+            alt={''}
+            src={produto[0].image[0]}
+            width={150}
+            height={150}
           />
-          <p className={style.carVazio}>Seu carrinho está vazio</p>
-          <p className={style.letrasPeq}>
-            Adicione novos itens ao carrinho antes de prosseguir para o
-            pagamento!
-          </p>
-          <button className={style.botao}>
-            <Link
-              href={'/produtos'}
-              style={{ textDecoration: 'none', color: 'white' }}
-            >
-              Continuar Comprando
-            </Link>
-          </button>
         </div>
-      ) : (
-        <div className={style.principal}>
-          <div className={style.titulo}>
-            <h1>Seu Carrinho</h1>
-          </div>
-          <div className={style.areaPagina}>
-            <div className={style.infoProdutos}>
-              {cartItens.map((prod, key) => (
-                <div key={key} className={style.cardProdutos}>
-                  <div className={style.atribsProduto}>
-                    <div className={style.imgBox}>
-                      <Image
-                        alt={''}
-                        src={prod.image[0]}
-                        width={150}
-                        height={150}
-                      />
-                    </div>
-                    <div className={style.infoCard}>
-                      <h3 className={style.nomeProd}>{prod.name}</h3>
-                      <div className={style.precos}>
-                        <span className={style.currentPrice}>
-                          R$ {prod.current_price}
-                        </span>
-                        <span className={style.oldPrice}>
-                          R$ {prod.old_price}
-                        </span>
-                      </div>
-                      <p className={style.qtdRestante}>
-                        {prod.available_quantity} Itens em estoque
-                      </p>
-                      <div className={style.qtdTamanho}>
-                        <div className={style.quantidade}>
-                          <p>Quantidade</p>
-                          {/* dropdown */}
-                        </div>
-                        <div className={style.tamanho}>
-                          <p>Tamanho</p>
-                          {/* dropdown */}
-                        </div>
-                      </div>
-                    </div>
+        <div className={style.infoBox}>
+          <div className="titulo"></div>
+          <div  className={style.cardProdutos}>
+            <div className={style.atribsProduto}>
+              
+              <div className={style.infoCard}>
+                <h3 className={style.nomeProd}>{produto[0].name}</h3>
+                <div className={style.precos}>
+                  <span className={style.currentPrice}>
+                    R$ {produto[0].current_price}
+                  </span>
+                  <span className={style.oldPrice}>
+                    R$ {produto[0].old_price}
+                  </span>
+                </div>
+                <p className={style.qtdRestante}>
+                  {produto[0].available_quantity} Itens em estoque
+                </p>
+                <div className={style.qtdTamanho}>
+                  <div className={style.quantidade}>
+                    <p>Quantidade</p>
+                    {/* dropdown */}
                   </div>
-                  <div className={style.botoes}>
-                    <>
-                      <button className={style.botao}>
-                        <MdFavoriteBorder />
-                      </button>
-                    </>
-                    <>
-                      <button
-                        onClick={() => deleteCart(prod.id)}
-                        className={style.botao}
-                      >
-                        <FiTrash />
-                      </button>
-                    </>
+                  <div className={style.tamanho}>
+                    <p>Tamanho</p>
+                    {/* dropdown */}
                   </div>
                 </div>
-              ))}
-            </div>
-            <div className={style.infoCompra}>
-              <div className={style.totalEFrete}>
-                <div className={style.valorCompra}>
-                  <div className={style.subtotal}>Subtotal</div>
-                  <div className={style.valorSubtotal}>R$ {totalValue},00</div>
-                </div>
-                <div className={style.botaoComprar}>
-                  <button onClick={() => vendido()} className={style.comprarAgora}>Comprar Agora</button>
-                </div>
-                <div className={style.frete}>
-                  <p className={style.calcFrete}>Calcular Frete</p>
-                  <div className={style.freteInput}>
-                    <input
-                      className={style.freteTexto}
-                      type="text"
-                      placeholder="Informe o CEP"
-                    />
-                    <button className={style.freteBtn}>
-                      <FaArrowRight />
-                    </button>
-                  </div>
-                  <p className={style.msgRodape}>
-                    Preço de frete para Salvador, Bahia: R${frete}
-                  </p>
+                <div className={style.btnBox}>
+                  {/* Adicionar ao carrinho */}
+                  <button
+                    className={style.btnAdicionar}
+                    onClick={() => (console.log('Deu certo'))}
+                    style={{ textDecoration: 'none', color: 'white' }}
+                  >
+                    Adicionar ao Carrinho
+                  </button>
                 </div>
               </div>
-              <div className={style.botoesCarrinho}>
-                <button className={style.botaoContinuar}>
-                  Continuar Comprando
+            </div>
+            <div className={style.botoes}>
+              <>
+                <button className={style.botao}>
+                  <MdFavoriteBorder />
                 </button>
+              </>
+              <>
                 <button
-                  onClick={() => clearCart()}
-                  className={style.botaoLimpar}
+                  onClick={() => deleteCart(prod.id)}
+                  className={style.botao}
                 >
-                  Limpar Carrinho
+                  <FiTrash />
                 </button>
-              </div>
+              </>
             </div>
           </div>
         </div>
-      )}
-      <div className={style.vistosRecentemente}>
+      </div>      
+      <div className={style.prodSemelhantes}>
         <div className={style.titulo}>
-          <h1>Vistos Recentemente</h1>
+          <h1>Produtos Semelhantes</h1>
         </div>
-        <div className={style.recentesCards}>
-          {recent.map((prod, key) => (
-            <div key={key} className={style.cardContainer}>
+        <div className={style.semelhanteCard}>
+          {products.map((prod, key) => (
+            <div className={style.cardContainer}>
               <Link
                 onClick={() => {
                   handleProduct(prod);
@@ -295,7 +231,7 @@ export default function Carrinho() {
                 {/* Adicionar ao carrinho */}
                 <button
                   className={style.btnAdicionar}
-                  onClick={() => adiCart(prod)}
+                  onClick={() => (console.log('Deu certo'))}
                   style={{ textDecoration: 'none', color: 'white' }}
                 >
                   Adicionar ao Carrinho
@@ -310,7 +246,7 @@ export default function Carrinho() {
           <h1>Outros Produtos</h1>
         </div>
         <div className={style.outrosProdsCards}>
-          {otherProducts(products).map((prod, key) => (
+          {products.map((prod, key) => (
             <Link
               onClick={() => {
                 handleProduct(prod);
@@ -346,6 +282,6 @@ export default function Carrinho() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

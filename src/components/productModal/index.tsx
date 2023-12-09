@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { Product } from '@/types/products';
 import styles from './modal.module.css';
-import { Placeholder } from 'react-bootstrap';
 import Image from 'next/image';
 
 interface EditProductPopupProps {
@@ -33,7 +32,7 @@ const EditProductPopup: React.FC<EditProductPopupProps> = ({ product, onClose, o
   console.log(product);
 
   return (
-    <div className={styles.box1}>
+    <div style={{zIndex: "1"}} className={styles.box1}>
       <div className={styles.titulo}>
         <h1>{product ? "Editar" : "Criar"}</h1>
       </div>
