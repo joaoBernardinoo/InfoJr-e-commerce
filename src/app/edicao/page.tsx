@@ -100,9 +100,9 @@ export default function Edicao() {
     setIsModalVisible(true);
   }
   function remove(id: number) {
-    products.filter((prod) => prod.id !== id);
+    setProds(products.filter((prod) => prod.id !== id))
   }
-  function save(editedProduct: any) {
+  function save(editedProduct: Product) {
     setProds(products.map((prod) => (prod.id === editedProduct.id ? editedProduct : prod)));
   };
 
